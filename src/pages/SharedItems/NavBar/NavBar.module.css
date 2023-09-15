@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #43C0F6;
+    width: 1920px;
+    height: 64px;
+    top: 0px;
+    left: 0px;
+    font-family: 'Open Sans';
+
+}
+
+.logo {
+    position: absolute;
+    top: 2px;
+    left: 255px;
+    width: 146px;
+    height: 60px;
+}
