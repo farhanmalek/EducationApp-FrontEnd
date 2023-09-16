@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import {Link} from "react-router-dom";
 
 export default function ProjectLibrary() {
+  // Add scroll to top functionality, onclick
   function handleBackToTop () {
     window.scrollTo({
       top:0,
@@ -11,13 +12,14 @@ export default function ProjectLibrary() {
   }
 
   return (
+    // Setup page boilerplate
     <>
       <div className={styles.mainContainer}>
         <Filter />
         <div className={styles.contentBox}>
           <h1>Projects</h1>
           <h3>
-            Welcome to the project library. You can use the filters on the right
+            Welcome to the project library. You can use the filters on the left
             to help you search for specific projects
           </h3>
           <div className={styles.filterButtons}>
@@ -46,6 +48,7 @@ export default function ProjectLibrary() {
             </div>
         </div>
       </div>
+      {/* Button to handle back to top */}
       <button className={styles.backToTopButton} onClick={handleBackToTop}> Back To Top</button>
     </>
   );
