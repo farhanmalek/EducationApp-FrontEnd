@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-p {
+p,a {
   margin-left: 8px;
 }
 

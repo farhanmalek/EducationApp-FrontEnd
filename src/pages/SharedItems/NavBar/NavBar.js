@@ -5,7 +5,7 @@ import nzFlag from "../../../assets/NavBar/NZFlag.png";
 import maoriFlag from "../../../assets/NavBar/MaoriFlag.png";
 import DropDown from "./DropDown";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function NavBar() {
   const [isToggled, setIsToggled] = useState(false);
 
@@ -16,7 +16,7 @@ export default function NavBar() {
       <div className={styles.container}>
         <img className={styles.logo} src={levelUp} alt="" />
         <div className={styles.navpages}>
-          <p> Home</p>
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to="/">Home</Link>
           <p> Projects</p>
           <p> Teachers</p>
         </div>
