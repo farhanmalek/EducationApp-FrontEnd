@@ -14,7 +14,7 @@ export default function NavBar() {
     <>
     {/* Basic Layout for Navbar */}
       <div className={styles.container}>
-        <img className={styles.logo} src={levelUp} alt="" />
+      <Link to="/"><img className={styles.logo} src={levelUp} alt="" /></Link>
         <div className={styles.navpages}>
           <Link style={{ color: 'inherit', textDecoration: 'none' }} to="/">Home</Link>
           <p> Projects</p>

@@ -3,6 +3,13 @@ import Filter from "./Filter";
 import {Link} from "react-router-dom";
 
 export default function ProjectLibrary() {
+  function handleBackToTop () {
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    })
+  }
+
   return (
     <>
       <div className={styles.mainContainer}>
@@ -39,6 +46,7 @@ export default function ProjectLibrary() {
             </div>
         </div>
       </div>
+      <button className={styles.backToTopButton} onClick={handleBackToTop}> Back To Top</button>
     </>
   );
 }
