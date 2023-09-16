@@ -1,0 +1,71 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/*Styling the main container */
+.mainContainer {
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid red;
+    margin-left: 255px;
+    gap: 119.5px;
+    font-family: 'Open Sans', sans-serif;
+    color: #6C6C6C;
+    
+}
+
+.contentBox h1 {
+    font-family: "Nunito", sans-serif;
+    font-size: 42px;
+    font-weight:900;
+    color: #6C6C6C;
+
+}
+.contentBox h3 {
+    font-size: 20px;
+
+}
+
+.filterButtonsLevel button {
+    
+}
+
+
+/* Styling for the filter container only */
+.filterContainer {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 658px;
+    justify-content: space-around;
+    font-size: 14px;
+    margin-top: 308px;
+}
+
+.filterItem {
+    display: flex;
+    gap: 20px;
+}
+
+
+.subscription {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkboxContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+ .filterContainer p:first-child {
+    font-size: 16px;
+    color: #767676;
+    font-weight: bolder;
+    margin-left: 0;
+    margin-bottom: 4.5px;
+    border-bottom: 1px solid #707070 ; 
+}
+/* End of filter container styling */
+/*  */
