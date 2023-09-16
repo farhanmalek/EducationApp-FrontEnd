@@ -1,26 +1,39 @@
-import React from 'react';
+import React from "react";
 import styles from "./NavBar.module.css";
-import levelup from "../../../assets/NavBar/LevelUpWorks-white.png"
-
+import levelUp from "../../../assets/NavBar/LevelUpWorks-white.png";
+import nzFlag from "../../../assets/NavBar/NZFlag.png";
+import maoriFlag from "../../../assets/NavBar/MaoriFlag.png";
+import DropDown from "./DropDown";
+import { useState } from "react";
 
 export default function NavBar() {
-
-
-
+  const [isToggled, setIsToggled] = useState(false);
 
 
   return (
     <>
-    <div className={styles.container}>
-        <img  className={styles.logo} src={levelup} alt=''/>
+    {/* Basic Layout for Navbar */}
+      <div className={styles.container}>
+        <img className={styles.logo} src={levelUp} alt="" />
         <div className={styles.navpages}>
-        <a href ="#"> Home</a>
-        <a href ="#"> Projects</a>
-        <a href ="#"> Teachers</a>
+          <p> Home</p>
+          <p> Projects</p>
+          <p> Teachers</p>
         </div>
-        
-    </div>
-    
+        <div className={styles.rightcontainer}>
+          <div onClick = {() => setIsToggled(!isToggled)} className={styles.profile}>
+            <img className={styles.navbarimg} src={process.env.PUBLIC_URL + '/images/students/RawiriFletcher.png'} alt="logged-in-profile" />
+            <p>Rawiri Fletcher</p>
+          </div>
+          <div className={styles.misc}>
+            <p>LANG</p>
+            <img className={styles.flag} src={nzFlag} alt="nz-flag"/>
+            <img className={styles.flag} src={maoriFlag} alt="maori-flag"/>
+          </div>
+        </div>
+      </div>
+      {/* Render dropdown component onclick */}
+      {isToggled && <DropDown/>}
     </>
-  )
+  );
 }
