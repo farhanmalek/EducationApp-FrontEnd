@@ -1,5 +1,6 @@
 import styles from "./ProjectLibrary.module.css";
 import Filter from "./Filter";
+import {Link} from "react-router-dom";
 
 export default function ProjectLibrary() {
   return (
@@ -14,9 +15,9 @@ export default function ProjectLibrary() {
           </h3>
           <div className={styles.filterButtons}>
             <div className={styles.filterButtonsLevel}>
-              <button>BEGINNER</button>
-              <button>INTERMEDIATE</button>
-              <button>ADVANCED</button>
+              <div>BEGINNER</div>
+              <div>INTERMEDIATE</div>
+              <div>ADVANCED</div>
             </div>
             <div className={styles.filterProjectsDisplayed}>
               <h6>SHOW</h6>
@@ -24,17 +25,18 @@ export default function ProjectLibrary() {
               <button>10</button>
               <button>All</button>
             </div>
+            </div>
             <div className={styles.displayProjects}>
               <div className={styles.projectCard}>
-                <img src="" alt="" />
+                <Link to="/studentdashboard"><img src={process.env.PUBLIC_URL + '/images/projects/Project01.png'} alt="" /></Link>
                 <h2>Introduction</h2>
                 <div className={styles.projectDetails}>
                   <p>Beginner</p>
+                  <p>|</p>
                   <p>Animation</p>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </>
