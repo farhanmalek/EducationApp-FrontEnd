@@ -1,0 +1,71 @@
+/* Styling navbar components as per specifications */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #43c0f6;
+  height: 64px;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 1px solid #43c0f6;
+}
+.navpages {
+  display: flex;
+  align-items: flex-end;
+  width: 406px;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navpages p:first-child {
+ cursor: pointer;
+}
+.navpages {
+  cursor: default;
+}
+
+.logo {
+  height: 60px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.rightcontainer {
+  display: flex;
+  flex-direction: column-reverse;
+  font-weight: bold;
+  justify-content: space-around;
+}
+
+.navbarimg {
+  width: 26px;
+  height: 26px;
+}
+
+.misc {
+  display: flex;
+  font-size: 11px;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.profile {
+  display: flex;
+  gap: 9px;
+  cursor: pointer;
+}
+
+.flag {
+  width: 24px;
+  height: 12px;
+}
