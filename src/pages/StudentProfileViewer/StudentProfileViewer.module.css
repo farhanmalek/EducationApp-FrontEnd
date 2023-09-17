@@ -8,6 +8,10 @@
   display: flex;
   height: 100vh;
   background-color: #eeeeee;
+  gap: 70px;
+  /* align-items: center; */
+  justify-content: center;
+  padding-top: 140px;
 }
 
 .imageCard {
@@ -19,11 +23,13 @@
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+  gap: 34px;
 }
 
 .imageCard img {
   width: 175px;
   height: 175px;
+  margin-top: 82px;
 }
 
 .imageCard button {
@@ -43,19 +49,69 @@
   display: flex;
   width: 820px;
   height: 712px;
-  border: 2px solid #e2dfdf;
+  border: 2px solid #E2DFDF;
   border-radius: 30px;
   background-color: #ffffff;
   flex-direction: column;
+  justify-content: space-around;
+}
+
+.studentName {
+  align-self: center;
+  font-size: 60px;
+  font-family: "Nunito";
+  color: #707070;
+  font-weight: bold;
 }
 
 .infoCardDetails {
   display: flex;
-  flex-direction: column;
-}
-.personalDetails {
-    display: flex;
-    font: bold;
-    font-size: 30px;
+  font: bold;
+  font-size: 30px;
+  justify-content: space-around;
 }
 
+.studentDetailsLeft {
+  font-family: 'Nunito',sans-serif;
+  gap: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #A5A5A5;
+  font-weight: bold;
+}
+
+.studentDetailsRight {
+  font-family: 'Open Sans',sans-serif;
+  gap: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #707070;
+  font-weight: bold;
+}
+
+.buttonAndCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 72px;
+}
+
+.projectButton button {
+  font-weight: 900;
+  color: white;
+  border: none;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 175px;
+  height: 35px;
+  background-color: rgb(212, 0, 106);
+}
+
+.imageButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
