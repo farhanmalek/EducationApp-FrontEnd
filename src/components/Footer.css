@@ -1,0 +1,12 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    color: white;
+    padding: 20px;
+}
+
+.footer-column{
+    flex: 1;
+    margin: 0 10px;
+}
