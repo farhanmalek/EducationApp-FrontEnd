@@ -1,8 +1,11 @@
 import "./App.css"
-import {Route, Routes} from "react-router-dom"
+import { Route, Routes } from 'react-router-dom';
 import NavBar from "./pages/SharedItems/NavBar/NavBar";
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary";
 import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer";
+import React from "react"
+import Footer from './components/Footer'
+
 
 function App() {
   return (
@@ -13,9 +16,8 @@ function App() {
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
       </Routes>
       
-
-
-
+   
+      <Footer />
     </div>
   );
 }
