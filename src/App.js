@@ -4,7 +4,8 @@ import NavBar from "./pages/SharedItems/NavBar/NavBar";
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary";
 import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer";
 import React from "react"
-import Footer from './components/Footer'
+import Footer from './components/Footer/Footer'
+import Home from "./components/Home/Home"
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Route path="/projectlibrary" element = {<ProjectLibrary/>}/>
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
       </Routes>
-      
+      <Home>
+      </Home>
    
       <Footer />
     </div>
