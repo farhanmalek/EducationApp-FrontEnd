@@ -5,7 +5,8 @@ import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary";
 import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer";
 import React from "react"
 import Footer from './components/Footer/Footer'
-import Home from "./components/Home/Home"
+import Home from "./components/HomePage/Home"
+
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       <Home>
       </Home>
    
-      <Footer />
+      <Footer>
+      </Footer>
     </div>
   );
 }
