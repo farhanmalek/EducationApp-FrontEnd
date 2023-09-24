@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";  // Added useState
 import data from "./data";
+import NavBar from "../SharedItems/NavBar/NavBar"
 
 export default function ProjectLibrary() {
   // Add scroll to top functionality, onclick
@@ -15,6 +16,7 @@ export default function ProjectLibrary() {
 
   return (
     <>
+      <NavBar/>
       <div className={styles.mainContainer}>
         <Filter />
         <div className={styles.contentBox}>
