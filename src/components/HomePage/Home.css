@@ -27,6 +27,40 @@
     min-height: 100vh; /* Ensure the container spans the full viewport height */
   }
 
+  /* Style for the button container */
+.button-container {
+  text-align: center; /* Center-align the buttons */
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+/* Style for the "Learn More" button */
+.learn-more-button {
+  background-color: white;
+  border: 2px solid #43c0f6;
+  color: #43c0f6;
+  padding: 10px 20px;
+  margin-right: 10px; /* Add spacing between buttons */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.learn-more-button:hover {
+  background-color: #43c0f6;
+  color: white;
+}
+
+/* Style for the "Sign Up" button */
+.sign-up-button {
+  background-color: pink;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.sign-up-button:hover {
+  background-color: #ff69b4; /* Change the hover color for the "Sign Up" button */
+}
+
+
   .sections {
     width: 100%; /* Make the sections span the full width */
     max-width: 800px; /* Adjust the max-width as needed */
