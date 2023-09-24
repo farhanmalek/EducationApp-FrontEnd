@@ -1,18 +1,49 @@
 .hero{
     background-image: url('../../assets/Home/hero.png');
 }
-
-  .hero {
+.hero {
+    background-image: url('../../assets/Home/hero.png');
+    background-size: cover;
+    background-position: center center;
+    height: 400px; /* Adjust the height as needed */
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center text within sections */
-    padding: 20px; /* Add padding for spacing */
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .header-content {
+    width: 30%;
+    padding:0;
+    text-align: left;
+    margin-left: 140px;
+
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the container spans the full viewport height */
+  }
+
+  .sections {
+    width: 100%; /* Make the sections span the full width */
+    max-width: 800px; /* Adjust the max-width as needed */
+    box-sizing: border-box;
   }
   
   .section {
     margin-bottom: 20px; /* Add space between sections */
     border: 1px solid black;
-    width: 100%; /* Make the sections span the full width */
-    box-sizing: border-box; /* Include padding and border in the width calculation */
+    padding: 20px;
+  }
+
+  .content-container {
+    flex: 1; /* Allow the content container to stretch to fill the remaining vertical space */
+    padding: 20px; /* Add padding for spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack sections vertically */
   }

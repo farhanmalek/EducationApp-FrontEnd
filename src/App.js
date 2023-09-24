@@ -17,8 +17,7 @@ function App() {
         <Route path="/projectlibrary" element = {<ProjectLibrary/>}/>
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
       </Routes>
-      <Home>
-      </Home>
+      <Home/>
    
       <Footer>
       </Footer>
