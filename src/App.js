@@ -17,9 +17,10 @@ function App() {
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
       </Routes>
       <Home>
+        <Footer/>
       </Home>
    
-      <Footer />
+      
     </div>
   );
 }

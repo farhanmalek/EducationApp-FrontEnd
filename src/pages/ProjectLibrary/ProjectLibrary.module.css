@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+
 }
 /*Styling the main container */
 .mainContainer {
@@ -19,6 +20,7 @@
   font-weight: 900;
   color: #6c6c6c;
   margin-top: 152px;
+
 }
 .contentBox h3 {
   font-size: 20px;
@@ -94,6 +96,8 @@
 .displayProjects {
   margin-top: 38.5px;
   display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .projectCard {
@@ -122,4 +126,27 @@
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* styling the show filter */
+
+.filterSelector {
+  display: flex;
+  background-color: rgb(238, 238, 238);
+  height: 21px;
+  width: 155px;
+  justify-content: space-evenly;
+  font-size: 12px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 4px;
+  margin-top: 107px;
+  border: none;
+
+}
+.filterSelector div:nth-child(2) {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding-left: 21px;
+  padding-right: 21px;
 }

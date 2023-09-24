@@ -1,9 +1,7 @@
 
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    margin-top: auto;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -14,7 +12,7 @@
   }
   
 
-.footer-column{
+.footerColumn{
     flex: 1;
     margin: 0 10px;
 }

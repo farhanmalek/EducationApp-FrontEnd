@@ -9,31 +9,48 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   const [isToggled, setIsToggled] = useState(false);
 
+ 
+
+
+  
 
   return (
     <>
-    {/* Basic Layout for Navbar */}
+      {/* Basic Layout for Navbar */}
       <div className={styles.container}>
-      <Link to="/"><img className={styles.logo} src={levelUp} alt="" /></Link>
+        <Link to="/">
+          <img className={styles.logo} src={levelUp} alt="" />
+        </Link>
         <div className={styles.navpages}>
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to="/">Home</Link>
+          <Link style={{ color: "inherit", textDecoration: "none" }} to="/">
+            Home
+          </Link>
           <p> Projects</p>
           <p> Teachers</p>
         </div>
         <div className={styles.rightcontainer}>
-          <div onClick = {() => setIsToggled(!isToggled)} className={styles.profile}>
-            <img className={styles.navbarimg} src={process.env.PUBLIC_URL + '/images/students/RawiriFletcher.png'} alt="logged-in-profile" />
+          <div
+            onClick={() => setIsToggled(!isToggled)}
+            className={styles.profile}
+          >
+            <img
+              className={styles.navbarimg}
+              src={
+                process.env.PUBLIC_URL + "/images/students/RawiriFletcher.png"
+              }
+              alt="logged-in-profile"
+            />
             <p>Rawiri Fletcher</p>
           </div>
           <div className={styles.misc}>
             <p>LANG</p>
-            <img className={styles.flag} src={nzFlag} alt="nz-flag"/>
-            <img className={styles.flag} src={maoriFlag} alt="maori-flag"/>
+            <img className={styles.flag} src={nzFlag} alt="nz-flag" />
+            <img className={styles.flag} src={maoriFlag} alt="maori-flag" />
           </div>
         </div>
       </div>
       {/* Render dropdown component onclick */}
-      {isToggled && <DropDown/>}
+      {isToggled && <DropDown />}
     </>
   );
 }

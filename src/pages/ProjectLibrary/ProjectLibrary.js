@@ -1,18 +1,19 @@
 import styles from "./ProjectLibrary.module.css";
 import Filter from "./Filter";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";  // Added useState
+import data from "./data";
 
 export default function ProjectLibrary() {
   // Add scroll to top functionality, onclick
-  function handleBackToTop () {
+  function handleBackToTop() {
     window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    })
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   return (
-    // Setup page boilerplate
     <>
       <div className={styles.mainContainer}>
         <Filter />
@@ -30,26 +31,36 @@ export default function ProjectLibrary() {
             </div>
             <div className={styles.filterProjectsDisplayed}>
               <h6>SHOW</h6>
-              <button>5</button>
-              <button>10</button>
-              <button>All</button>
-            </div>
-            </div>
-            <div className={styles.displayProjects}>
-              <div className={styles.projectCard}>
-                <Link to="/studentdashboard"><img src={process.env.PUBLIC_URL + '/images/projects/Project01.png'} alt="" /></Link>
-                <h2>Introduction</h2>
-                <div className={styles.projectDetails}>
-                  <p>Beginner</p>
-                  <p>|</p>
-                  <p>Animation</p>
-                </div>
+              <div className={styles.filterSelector}>
+                <div>5</div>
+                <div>10</div>
+                <div>All</div>
               </div>
             </div>
+          </div>
+          <div className={styles.displayProjects}>
+            {data.map((project) => (  // Moved the mapping function here
+              <div className={styles.projectCard} key={project.id}>  {/* Added key */}
+                <Link to="/studentdashboard">
+                  <img
+                    src={process.env.PUBLIC_URL + project.image}
+                    alt={project.name}
+                  />
+                </Link>
+                <h2>{project.name}</h2>
+                <div className={styles.projectDetails}>
+                  <p>{project.difficulty}</p>
+                  <p>|</p>
+                  <p>{project.type}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-      {/* Button to handle back to top */}
-      <button className={styles.backToTopButton} onClick={handleBackToTop}> Back To Top</button>
+      <button className={styles.backToTopButton} onClick={handleBackToTop}>
+        Back To Top
+      </button>
     </>
   );
 }
