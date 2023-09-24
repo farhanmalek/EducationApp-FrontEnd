@@ -11,14 +11,11 @@ import Home from "./components/Home/Home"
 function App() {
   return (
     <div className="App">
-      <NavBar/>
       <Routes>
         <Route path="/projectlibrary" element = {<ProjectLibrary/>}/>
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
       </Routes>
-      <Home>
-        <Footer/>
-      </Home>
+
    
       
     </div>
