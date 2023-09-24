@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  display: flex;
+  height: 100vh;
+  background-color: #eeeeee;
+  gap: 70px;
+  /* align-items: center; */
+  justify-content: center;
+  padding-top: 140px;
+}
+
+.imageCard {
+  width: 361px;
+  height: 575px;
+  border-radius: 30px;
+  border: 2px solid #e2dfdf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  gap: 34px;
+}
+
+.imageCard img {
+  width: 175px;
+  height: 175px;
+  margin-top: 82px;
+}
+
+.imageCard button {
+  width: 175px;
+  height: 35px;
+  height: 35px;
+  border: 2px solid #43c0f6;
+  color: #43c0f6;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 5px #00000029;
+  border-radius: 8px;
+}
+
+.infoCard {
+  display: flex;
+  width: 820px;
+  height: 712px;
+  border: 2px solid #E2DFDF;
+  border-radius: 30px;
+  background-color: #ffffff;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.studentName {
+  align-self: center;
+  font-size: 60px;
+  font-family: "Nunito";
+  color: #707070;
+  font-weight: bold;
+}
+
+.infoCardDetails {
+  display: flex;
+  font: bold;
+  font-size: 30px;
+  justify-content: space-around;
+}
+
+.studentDetailsLeft {
+  font-family: 'Nunito',sans-serif;
+  gap: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #A5A5A5;
+  font-weight: bold;
+}
+
+.studentDetailsRight {
+  font-family: 'Open Sans',sans-serif;
+  gap: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #707070;
+  font-weight: bold;
+}
+
+.buttonAndCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 72px;
+}
+
+.projectButton button {
+  font-weight: 900;
+  color: white;
+  border: none;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 175px;
+  height: 35px;
+  background-color: rgb(212, 0, 106);
+}
+
+.imageButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
