@@ -57,7 +57,7 @@
 }
 
 .sign-up-button:hover {
-  background-color: #ff69b4; /* Change the hover color for the "Sign Up" button */
+  background-color: greenyellow; /* Change the hover color for the "Sign Up" button */
 }
 
 
@@ -81,3 +81,123 @@
     align-items: center;
     flex-direction: column; /* Stack sections vertically */
   }
+
+  .two-column-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .left-column {
+    flex: 1;
+    padding-right: 80px; /* Add some spacing between columns */
+    padding-left: 150px;
+  }
+  
+  .right-column {
+    flex: 1;
+  }
+  
+  /* Add media queries for responsive design */
+  @media (max-width: 768px) {
+    .two-column-section {
+      flex-direction: column; /* Stack columns on small screens */
+      align-items: flex-start;
+    }
+  
+    .left-column,
+    .right-column {
+      width: 100%; /* Full width on small screens */
+      padding-right: 0px; /* Remove spacing on small screens */
+    }
+  }
+  
+  /* Add this to your Home.css file */
+.navigation-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Add margin to separate from the carousel */
+}
+
+/* Style for the individual navigation dots */
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px; /* Add some spacing between dots */
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity here */
+  cursor: pointer;
+}
+
+/* Style for the active dot */
+.dot.active {
+  background-color: #000; /* Change to the desired color for the active dot */
+}
+
+.container-three {
+  /* Ensure the container takes the full width of its parent */
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content (optional) */
+}
+
+.image-container {
+  display: flex; /* Display images horizontally */
+  justify-content: center; /* Center images horizontally within the container */
+  margin-top: 20px; /* Add margin to separate text and images */
+}
+
+.image-container img {
+  max-width: 100%; /* Ensure images don't exceed their container's width */
+  margin: 0 10px; /* Add margin between images */
+}
+
+.additional-images-horizontal {
+  display: flex; /* Display images horizontally */
+  justify-content: space-between; /* Add space between images */
+  align-items: center; /* Align images vertically in the center */
+  margin-top: 20px; /* Adjust the margin */
+}
+
+.additional-images-horizontal img {
+  max-width: 100px; /* Adjust the maximum width of the images */
+  margin-right: 10px; /* Add spacing between images */
+}
+
+/* Add this CSS to your existing CSS file or component */
+.container-three .image-container {
+  display: flex; /* Display images horizontally */
+  justify-content: space-between; /* Add space between images */
+  align-items: center; /* Align images vertically in the center */
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.container-three .image-container img {
+  max-width: 100px; /* Adjust the maximum width of the images */
+  margin-right: 10px; /* Add spacing between images */
+}
+
+/* Add this CSS to your existing CSS file or component */
+.container-three {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.container-three .text-content {
+  margin-bottom: 10px; /* Add spacing between text and images */
+}
+
+.container-three .image-container {
+  display: flex; /* Display images horizontally */
+  justify-content: center; /* Center images horizontally */
+  margin-top: 20px; /* Add margin to separate text and images */
+}
+
+.container-three .image-container img {
+  max-width: 100px; /* Adjust the maximum width of the images */
+  margin: 0 10px; /* Add margin between images */
+}
