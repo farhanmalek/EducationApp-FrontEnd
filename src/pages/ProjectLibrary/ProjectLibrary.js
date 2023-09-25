@@ -1,5 +1,5 @@
 import styles from "./ProjectLibrary.module.css";
-import Filter from "./Filter";
+import Filter from "./components/Filter";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";  // Added useState
 import data from "./data";
@@ -16,7 +16,7 @@ export default function ProjectLibrary() {
 
   return (
     <>
-      <NavBar/>
+      <NavBar/> 
       <div className={styles.mainContainer}>
         <Filter />
         <div className={styles.contentBox}>
