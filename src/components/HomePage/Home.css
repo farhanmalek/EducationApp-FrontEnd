@@ -247,3 +247,24 @@ li {
 .list-item {
   padding-left: 60px; /* Adjust the padding as needed */
 }
+
+/* section six */
+ /* Style the container for the image and text */
+ .image-and-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Style the image */
+.image {
+  flex-basis: 50%;
+  margin-left: 100px;
+  padding: 70px
+}
+
+/* Style the text */
+.text {
+  flex-basis: 50%;
+  padding: 40px
+}

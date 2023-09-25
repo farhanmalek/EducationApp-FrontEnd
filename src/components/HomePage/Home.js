@@ -15,6 +15,7 @@ import image9 from '../../assets/Home/Group 1.png';
 import image10 from '../../assets/Home/Group 2.png';
 import image11 from '../../assets/Home/Group 3.png';
 import image12 from '../../assets/Home/Group 4.png';
+import classroom from '../../assets/Home/classroom.png';
 
 function Home() {
   const images = [image1, image2, image3, image4];
@@ -135,6 +136,21 @@ function Home() {
                 <p>The program encourages students to be involved in communities, such as family, whanau, school, and contribute and make connections with other people.</p>
             </div>
         </ul>
+      </section>
+      <section className="section-six">
+        <div class="image-and-text">
+          <div class="image">
+            <img src={classroom} alt="kids in classroom" />
+          </div>
+          <div class="text">
+            <h2>What are you waiting for?</h2>
+            <br/>
+            <h3>Start teaching Digital Technologies today.</h3>
+            <br/>
+            <p>If you need more information, we are happy to answer and questions you might have.</p>
+            <br/>
+          </div>
+        </div>
       </section>
     </div>
   );
