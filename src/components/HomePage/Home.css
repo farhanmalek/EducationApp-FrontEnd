@@ -201,3 +201,49 @@
   max-width: 100px; /* Adjust the maximum width of the images */
   margin: 0 10px; /* Add margin between images */
 }
+
+/* styles to the buttons in section four */
+.button {
+  display: inline-block;
+  margin: 10px; /* Adjust the margin as needed for spacing */
+  padding: 2px 20px; /* Adjust the padding for button size */
+  background-color: white;
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Change button styles on hover */
+.button:hover {
+  background-color: lightblue;
+  color: white;
+  border-color: white;
+}
+
+.section-five {
+  padding-left: 200px;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+li {
+  margin-bottom: 0px; /* Adjust spacing between list items */
+  margin-top: 10px;
+  padding-left: 30px; /* Adjust the space for the logo */
+  background-image: url('../../assets/Home/star.png'); /* Replace with your logo's path */
+  background-repeat: no-repeat;
+  background-position: 0 50%; /* Adjust the position to center the logo vertically */
+  background-size: 30px 30px; /* Adjust the size of the logo */
+  line-height: 20px; /* Adjust the line height to match logo size */
+}
+
+.list-item {
+  padding-left: 60px; /* Adjust the padding as needed */
+}

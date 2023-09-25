@@ -97,6 +97,45 @@ function Home() {
             <img src={image12} alt="Image 12" />
           </div>
       </section>
+      <br/>
+      <br/>
+      <section className="container-four">
+        <h2 style={{textAlign: 'center'}}>How our Program helps teachers and schools</h2>
+        <div className="button-container">
+          <div class="button">Learning Pathways</div>
+          <div class="button">Digital Technologies</div>
+          <div class="button">Key Competencies</div>
+          <div class="button">IR4.0</div>
+        </div>
+      </section>
+      <br/>
+      <br/>
+      <section className="section-five">
+        <h3>Enhance key Competencies</h3>
+        <p>The program enhances capabilities of students in the 5 key Competencies identified in the New Zealand Curriculum:</p>
+        <ul>
+            <div class="list-item">
+                <li>THINKING</li>
+                <p>In particular, the program focuses on problem-solving, design thinking, and computational thinking.</p>
+            </div>
+            <div class="list-item">
+                <li>DECODING CODE</li>
+                <p>Analyzing language, symbols, and text in order to understand and make sense of the codes in which knowledge is expressed.</p>
+            </div>
+            <div class="list-item">
+                <li>SELF-MANAGEMENT</li>
+                <p>Projects and challenges are designed to motivate students to explore and experiment with self-motivation.</p>
+            </div>
+            <div class="list-item">
+                <li>RELATIONSHIPS WITH PEERS</li>
+                <p>The program is designed with unplugged sessions where students interact in a range of different situations, including things like being able to listen well, recognize different points of view, and share ideas.</p>
+            </div>
+            <div class="list-item">
+                <li>PARTICIPATION AND COLLABORATION</li>
+                <p>The program encourages students to be involved in communities, such as family, whanau, school, and contribute and make connections with other people.</p>
+            </div>
+        </ul>
+      </section>
     </div>
   );
 }
