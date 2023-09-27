@@ -26,11 +26,9 @@ export default function ProjectLibrary() {
   const filterItems = () => {
     
     const filteredProjects = data.filter((project) => {
-      const subMatch = !selectSub || selectSub.includes(project.subscription);
-      const typeMatch = !selectType || selectType.includes(project.type);
-    
-      const matterMatch = !selectMatter || selectMatter.includes(project.subject);
-      console.log(subMatch,typeMatch,matterMatch)
+      const subMatch = (selectSub.length === 0) || selectSub.includes(project.subscription);
+      const typeMatch = (selectType.length === 0) || selectType.includes(project.type);
+      const matterMatch = (selectMatter.length === 0) || selectMatter.includes(project.subject);
       return (subMatch && typeMatch && matterMatch)
     })
     setFilteredData(filteredProjects)
@@ -39,7 +37,7 @@ export default function ProjectLibrary() {
 
   useEffect(() => {
     filterItems();
-  },[selectSub])
+  },[selectSub,selectDiff,selectType,selectMatter])
 
 
 
