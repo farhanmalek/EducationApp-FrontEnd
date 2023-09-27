@@ -32,7 +32,7 @@ function Home() {
           <header>
             <h1>
               Prepare young minds for a better{' '}
-              <span style={{ color: '#43c0f6' }}>future</span>
+              <span className={styles.highlightedText}>future</span>
             </h1>
             <br />
             <p>Let us help you advance students in Digital Technologies and other learning areas with our project-based learning program.</p>
@@ -47,7 +47,7 @@ function Home() {
           </header>
         </div>
       </div>
-      <section className={styles.sectionTwoColumnSection}>
+      <section className={styles.twoColumnSection}>
         <div className={styles.leftColumn}>
           <h2>What we offer</h2>
           <p>The creative problem-solving program is a series of digital creation projects aimed to encourage self-motivation and student agency, designed by New Zealand's leading IT industry experts and schools.</p>
@@ -80,7 +80,7 @@ function Home() {
             {images.map((_, index) => (
               <div
                 key={index}
-                className={`dot ${index === currentSlide ? 'active' : ''}`}
+                className={`${styles.dot} ${index === currentSlide ? styles.active : ''}`}
                 onClick={() => handleSlideChange(index)}
               ></div>
             ))}
@@ -88,25 +88,25 @@ function Home() {
         </div>
       </section>
       <section className={styles.containerThree}>
-          <div className={styles.textContent}>
-            <h3>Teaching kids programming and digital skills is MORE than just code writing.</h3>
-          </div>
-          <div className={styles.imageContainer}>
-            <img src={image9} alt="Image 9" />
-            <img src={image10} alt="Image 10" />
-            <img src={image11} alt="Image 11" />
-            <img src={image12} alt="Image 12" />
-          </div>
+        <div className={styles.textContainer}>
+          <h3>Teaching kids programming and digital skills is MORE than just code writing.</h3>
+        </div>
+        <div className={styles.imageContainer}>
+          <img src={image9} alt="Image 9" />
+          <img src={image10} alt="Image 10" />
+          <img src={image11} alt="Image 11" />
+          <img src={image12} alt="Image 12" />
+        </div>
       </section>
-      <br/>
+
       <br/>
       <section className={styles.containerFour}>
-        <h2 style={{textAlign: 'center'}}>How our Program helps teachers and schools</h2>
+        <h2 style={{ textAlign: 'center' }}>How our Program helps teachers and schools</h2>
         <div className={styles.buttonContainer}>
-          <div class="button">Learning Pathways</div>
-          <div class="button">Digital Technologies</div>
-          <div class="button">Key Competencies</div>
-          <div class="button">IR4.0</div>
+          <div className={styles.button}>Learning Pathways</div>
+          <div className={styles.button}>Digital Technologies</div>
+          <div className={styles.button}>Key Competencies</div>
+          <div className={styles.button}>IR4.0</div>
         </div>
       </section>
       <br/>
@@ -115,39 +115,34 @@ function Home() {
         <h3>Enhance key Competencies</h3>
         <p>The program enhances capabilities of students in the 5 key Competencies identified in the New Zealand Curriculum:</p>
         <ul>
-            <div class={styles.listItem}>
-                <li>THINKING</li>
-                <p>In particular, the program focuses on problem-solving, design thinking, and computational thinking.</p>
-            </div>
-            <div class={styles.listItem}>
-                <li>DECODING CODE</li>
-                <p>Analyzing language, symbols, and text in order to understand and make sense of the codes in which knowledge is expressed.</p>
-            </div>
-            <div class={styles.listItem}>
-                <li>SELF-MANAGEMENT</li>
-                <p>Projects and challenges are designed to motivate students to explore and experiment with self-motivation.</p>
-            </div>
-            <div class={styles.listItem}>
-                <li>RELATIONSHIPS WITH PEERS</li>
-                <p>The program is designed with unplugged sessions where students interact in a range of different situations, including things like being able to listen well, recognize different points of view, and share ideas.</p>
-            </div>
-            <div class={styles.listItem}>
-                <li>PARTICIPATION AND COLLABORATION</li>
-                <p>The program encourages students to be involved in communities, such as family, whanau, school, and contribute and make connections with other people.</p>
-            </div>
+          <li className={styles.listItem}>THINKING
+            <p>In particular, the program focuses on problem-solving, design thinking, and computational thinking.</p>
+          </li>
+          <li className={styles.listItem}>DECODING CODE
+            <p>Analyzing language, symbols, and text in order to understand and make sense of the codes in which knowledge is expressed.</p>
+          </li>
+          <li className={styles.listItem}>SELF-MANAGEMENT
+            <p>Projects and challenges are designed to motivate students to explore and experiment with self-motivation.</p>
+          </li>
+          <li className={styles.listItem}>RELATIONSHIPS WITH PEERS
+            <p>The program is designed with unplugged sessions where students interact in a range of different situations, including things like being able to listen well, recognize different points of view, and share ideas.</p>
+          </li>
+          <li className={styles.listItem}>PARTICIPATION AND COLLABORATION
+            <p>The program encourages students to be involved in communities, such as family, whanau, school, and contribute and make connections with other people.</p>
+          </li>
         </ul>
       </section>
       <section className={styles.sectionSix}>
-        <div class={styles.imageAndText}>
-          <div class={styles.image}>
+        <div className={styles.imageAndText}>
+          <div className={styles.image}>
             <img src={classroom} alt="kids in classroom" />
           </div>
-          <div class={styles.text}>
+          <div className={styles.text}>
             <h2>What are you waiting for?</h2>
             <br/>
             <h3>Start teaching Digital Technologies today.</h3>
             <br/>
-            <p>If you need more information, we are happy to answer and questions you might have.</p>
+            <p>If you need more information, we are happy to answer any questions you might have.</p>
             <br/>
           </div>
         </div>

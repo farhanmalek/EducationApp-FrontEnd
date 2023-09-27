@@ -1,212 +1,144 @@
-.hero{
-    background-image: url('../../assets/Home/hero.png');
+/* Home.module.css */
+
+.homeContainer {
+  font-family: Arial, sans-serif;
+  color: #333;
+  overflow: hidden;
 }
+
 .hero {
-    background-image: url('../../assets/Home/hero.png');
-    background-size: cover;
-    background-position: center center;
-    height: 400px; /* Adjust the height as needed */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    position: relative;
-  }
-
-  .header-content {
-    width: 30%;
-    padding:0;
-    text-align: left;
-    margin-left: 140px;
-
-  }
-
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the container spans the full viewport height */
-  }
-
-  /* Style for the button container */
-.button-container {
-  text-align: center; /* Center-align the buttons */
-  margin-top: 20px; /* Adjust the margin as needed */
+  background-size: cover;
+  background-position: center center;
+  height: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
-/* Style for the "Learn More" button */
-.learn-more-button {
+.headerContent {
+  width: 30%;
+  padding: 0;
+  text-align: left;
+  margin-left: 140px;
+}
+
+.highlightedText {
+  color: #43c0f6;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.learnMoreButton {
   background-color: white;
   border: 2px solid #43c0f6;
   color: #43c0f6;
   padding: 10px 20px;
-  margin-right: 10px; /* Add spacing between buttons */
-  cursor: pointer; /* Change cursor on hover */
+  margin-right: 10px;
+  cursor: pointer;
 }
 
-.learn-more-button:hover {
+.learnMoreButton:hover {
   background-color: #43c0f6;
   color: white;
 }
 
-/* Style for the "Sign Up" button */
-.sign-up-button {
+.signUpButton {
   background-color: hotpink;
   color: white;
   padding: 10px 20px;
-  cursor: pointer; /* Change cursor on hover */
-}
-
-.sign-up-button:hover {
-  background-color: greenyellow; /* Change the hover color for the "Sign Up" button */
-}
-
-
-  .sections {
-    width: 100%; /* Make the sections span the full width */
-    max-width: 800px; /* Adjust the max-width as needed */
-    box-sizing: border-box;
-  }
-  
-  .section {
-    margin-bottom: 20px; /* Add space between sections */
-    border: 1px solid black;
-    padding: 20px;
-  }
-
-  .content-container {
-    flex: 1; /* Allow the content container to stretch to fill the remaining vertical space */
-    padding: 20px; /* Add padding for spacing */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Stack sections vertically */
-  }
-
-  .two-column-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .left-column {
-    flex: 1;
-    padding-right: 80px; /* Add some spacing between columns */
-    padding-left: 150px;
-  }
-  
-  .right-column {
-    flex: 1;
-  }
-  
-  /* Add media queries for responsive design */
-  @media (max-width: 768px) {
-    .two-column-section {
-      flex-direction: column; /* Stack columns on small screens */
-      align-items: flex-start;
-    }
-  
-    .left-column,
-    .right-column {
-      width: 100%; /* Full width on small screens */
-      padding-right: 0px; /* Remove spacing on small screens */
-    }
-  }
-  
-  /* Add this to your Home.css file */
-.navigation-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px; /* Add margin to separate from the carousel */
-}
-
-/* Style for the individual navigation dots */
-.dot {
-  width: 10px;
-  height: 10px;
-  margin: 0 5px; /* Add some spacing between dots */
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity here */
   cursor: pointer;
 }
 
-/* Style for the active dot */
-.dot.active {
-  background-color: #000; /* Change to the desired color for the active dot */
+.signUpButton:hover {
+  background-color: greenyellow;
 }
 
-.container-three {
-  /* Ensure the container takes the full width of its parent */
-  width: 100%;
+.twoColumnSection {
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content (optional) */
-}
-
-.image-container {
-  display: flex; /* Display images horizontally */
-  justify-content: center; /* Center images horizontally within the container */
-  margin-top: 20px; /* Add margin to separate text and images */
-}
-
-.image-container img {
-  max-width: 100%; /* Ensure images don't exceed their container's width */
-  margin: 0 10px; /* Add margin between images */
-}
-
-.additional-images-horizontal {
-  display: flex; /* Display images horizontally */
-  justify-content: space-between; /* Add space between images */
-  align-items: center; /* Align images vertically in the center */
-  margin-top: 20px; /* Adjust the margin */
-}
-
-.additional-images-horizontal img {
-  max-width: 100px; /* Adjust the maximum width of the images */
-  margin-right: 10px; /* Add spacing between images */
-}
-
-/* Add this CSS to your existing CSS file or component */
-.container-three .image-container {
-  display: flex; /* Display images horizontally */
-  justify-content: space-between; /* Add space between images */
-  align-items: center; /* Align images vertically in the center */
-  margin-top: 20px; /* Adjust the margin as needed */
-}
-
-.container-three .image-container img {
-  max-width: 100px; /* Adjust the maximum width of the images */
-  margin-right: 10px; /* Add spacing between images */
-}
-
-/* Add this CSS to your existing CSS file or component */
-.container-three {
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
 }
 
-.container-three .text-content {
-  margin-bottom: 10px; /* Add spacing between text and images */
+.leftColumn {
+  flex: 1;
+  padding-right: 80px;
+  padding-left: 150px;
 }
 
-.container-three .image-container {
-  display: flex; /* Display images horizontally */
+.rightColumn {
+  flex: 1;
+}
+
+.navigationDots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #000;
+}
+
+/* In your Home.module.css */
+
+.containerThree {
+  text-align: center; /* Center-align the content horizontally */
+  margin-top: 40px;
+}
+
+.textContainer {
+  margin-bottom: 20px; /* Add margin between text and images */
+}
+
+.imageContainer {
+  display: flex;
   justify-content: center; /* Center images horizontally */
-  margin-top: 20px; /* Add margin to separate text and images */
+  align-items: center;
+  margin-top: 20px;
 }
 
-.container-three .image-container img {
-  max-width: 100px; /* Adjust the maximum width of the images */
+.imageContainer img {
+  max-width: 100%;
   margin: 0 10px; /* Add margin between images */
 }
 
-/* styles to the buttons in section four */
-.button {
+
+.additionalImagesHorizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.additionalImagesHorizontal img {
+  max-width: 100px;
+  margin-right: 10px;
+}
+
+.containerFour {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.buttonContainer .button {
   display: inline-block;
-  margin: 10px; /* Adjust the margin as needed for spacing */
-  padding: 2px 20px; /* Adjust the padding for button size */
+  margin: 10px;
+  padding: 2px 20px;
   background-color: white;
   border: 2px solid lightblue;
   border-radius: 5px;
@@ -215,56 +147,52 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-/* Change button styles on hover */
-.button:hover {
+.buttonContainer .button:hover {
   background-color: lightblue;
   color: white;
   border-color: white;
 }
 
-.section-five {
+.sectionFive {
   padding-left: 200px;
 }
-
 
 ul {
   list-style-type: none;
   padding: 0;
 }
 
-
-li {
-  margin-bottom: 0px; /* Adjust spacing between list items */
+.listItem {
+  margin-bottom: 0px;
   margin-top: 10px;
-  padding-left: 30px; /* Adjust the space for the logo */
-  background-image: url('../../assets/Home/star.png'); /* Replace with your logo's path */
+  padding-left: 30px;
+  background-image: url('../../assets/Home/star.png');
   background-repeat: no-repeat;
-  background-position: 0 50%; /* Adjust the position to center the logo vertically */
-  background-size: 30px 30px; /* Adjust the size of the logo */
-  line-height: 20px; /* Adjust the line height to match logo size */
+  background-position: 0 50%;
+  background-size: 30px 30px;
+  line-height: 20px;
 }
 
-.list-item {
-  padding-left: 60px; /* Adjust the padding as needed */
+.sectionSix {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
 }
 
-/* section six */
- /* Style the container for the image and text */
- .image-and-text {
+.imageAndText {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-/* Style the image */
 .image {
   flex-basis: 50%;
   margin-left: 100px;
-  padding: 70px
+  padding: 70px;
 }
 
-/* Style the text */
 .text {
   flex-basis: 50%;
-  padding: 40px
+  padding: 40px;
 }
