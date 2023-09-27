@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Home.css';
 import heroImage from '../../assets/Home/hero.png';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -16,6 +15,7 @@ import image10 from '../../assets/Home/Group 2.png';
 import image11 from '../../assets/Home/Group 3.png';
 import image12 from '../../assets/Home/Group 4.png';
 import classroom from '../../assets/Home/classroom.png';
+import styles from './Home.module.css';
 
 function Home() {
   const images = [image1, image2, image3, image4];
@@ -26,9 +26,9 @@ function Home() {
   };
 
   return (
-    <div className="home-container">
-      <div className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
-        <div className="header-content">
+    <div className={styles.homeContainer}>
+      <div className={styles.hero} style={{ backgroundImage: `url(${heroImage})` }}>
+        <div className={styles.headerContent}>
           <header>
             <h1>
               Prepare young minds for a better{' '}
@@ -36,31 +36,31 @@ function Home() {
             </h1>
             <br />
             <p>Let us help you advance students in Digital Technologies and other learning areas with our project-based learning program.</p>
-            <div className="button-container">
-              <button className="learn-more-button">
+            <div className={styles.buttonContainer}>
+              <button className={styles.learnMoreButton}>
                 Learn More
               </button>
-              <button className="sign-up-button">
+              <button className={styles.signUpButton}>
                 Sign Up
               </button>
             </div>
           </header>
         </div>
       </div>
-      <section className="section two-column-section">
-        <div className="left-column">
+      <section className={styles.sectionTwoColumnSection}>
+        <div className={styles.leftColumn}>
           <h2>What we offer</h2>
           <p>The creative problem-solving program is a series of digital creation projects aimed to encourage self-motivation and student agency, designed by New Zealand's leading IT industry experts and schools.</p>
           <h3>What will students create?</h3>
           {/* Display additional images under the text */}
-          <div className="additional-images-horizontal">
+          <div className={styles.additionalImagesHorizontal}>
             <img src={image5} alt="Additional Slide 1" />
             <img src={image6} alt="Additional Slide 2" />
             <img src={image7} alt="Additional Slide 3" />
             <img src={image8} alt="Additional Slide 4" />
           </div>
         </div>
-        <div className="right-column">
+        <div className={styles.rightColumn}>
           <Carousel
             selectedItem={currentSlide}
             onChange={setCurrentSlide}
@@ -76,7 +76,7 @@ function Home() {
               </div>
             ))}
           </Carousel>
-          <div className="navigation-dots">
+          <div className={styles.navigationDots}>
             {images.map((_, index) => (
               <div
                 key={index}
@@ -87,11 +87,11 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="container-three">
-          <div className="text-content">
+      <section className={styles.containerThree}>
+          <div className={styles.textContent}>
             <h3>Teaching kids programming and digital skills is MORE than just code writing.</h3>
           </div>
-          <div className="image-container">
+          <div className={styles.imageContainer}>
             <img src={image9} alt="Image 9" />
             <img src={image10} alt="Image 10" />
             <img src={image11} alt="Image 11" />
@@ -100,9 +100,9 @@ function Home() {
       </section>
       <br/>
       <br/>
-      <section className="container-four">
+      <section className={styles.containerFour}>
         <h2 style={{textAlign: 'center'}}>How our Program helps teachers and schools</h2>
-        <div className="button-container">
+        <div className={styles.buttonContainer}>
           <div class="button">Learning Pathways</div>
           <div class="button">Digital Technologies</div>
           <div class="button">Key Competencies</div>
@@ -111,38 +111,38 @@ function Home() {
       </section>
       <br/>
       <br/>
-      <section className="section-five">
+      <section className={styles.sectionFive}>
         <h3>Enhance key Competencies</h3>
         <p>The program enhances capabilities of students in the 5 key Competencies identified in the New Zealand Curriculum:</p>
         <ul>
-            <div class="list-item">
+            <div class={styles.listItem}>
                 <li>THINKING</li>
                 <p>In particular, the program focuses on problem-solving, design thinking, and computational thinking.</p>
             </div>
-            <div class="list-item">
+            <div class={styles.listItem}>
                 <li>DECODING CODE</li>
                 <p>Analyzing language, symbols, and text in order to understand and make sense of the codes in which knowledge is expressed.</p>
             </div>
-            <div class="list-item">
+            <div class={styles.listItem}>
                 <li>SELF-MANAGEMENT</li>
                 <p>Projects and challenges are designed to motivate students to explore and experiment with self-motivation.</p>
             </div>
-            <div class="list-item">
+            <div class={styles.listItem}>
                 <li>RELATIONSHIPS WITH PEERS</li>
                 <p>The program is designed with unplugged sessions where students interact in a range of different situations, including things like being able to listen well, recognize different points of view, and share ideas.</p>
             </div>
-            <div class="list-item">
+            <div class={styles.listItem}>
                 <li>PARTICIPATION AND COLLABORATION</li>
                 <p>The program encourages students to be involved in communities, such as family, whanau, school, and contribute and make connections with other people.</p>
             </div>
         </ul>
       </section>
-      <section className="section-six">
-        <div class="image-and-text">
-          <div class="image">
+      <section className={styles.sectionSix}>
+        <div class={styles.imageAndText}>
+          <div class={styles.image}>
             <img src={classroom} alt="kids in classroom" />
           </div>
-          <div class="text">
+          <div class={styles.text}>
             <h2>What are you waiting for?</h2>
             <br/>
             <h3>Start teaching Digital Technologies today.</h3>

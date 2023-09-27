@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
+import styles from './LoginModal.module.css'; // Import the CSS module
 
-function SignInModal({ isOpen, onClose }) {
+function LoginModal({ isOpen, onClose }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add sign-in logic here
-    //  API request or handle sign-in within this component
+    // Add your login logic here
+    // You can make an API request or handle login within this component
   };
 
   return (
-    <div className={`modal ${isOpen ? 'is-active' : ''}`}>
-      <div className="modal-background" onClick={onClose}></div>
-      <div className="modal-card">
-        <header className="modal-card-head">
-          <p className="modal-card-title">Sign In</p>
-          <button className="delete" aria-label="close" onClick={onClose}></button>
+    <div className={`${styles.modal} ${isOpen ? styles.isActive : ''}`}>
+      <div className={styles.modalBackground} onClick={onClose}></div>
+      <div className={styles.modalCard}>
+        <header className={styles.modalCardHead}>
+          <p className={styles.modalCardTitle}>Log In</p>
+          <button className={styles.delete} aria-label="close" onClick={onClose}></button>
         </header>
-        <section className="modal-card-body">
-          {/* Sign-in form */}
+        <section className={styles.modalCardBody}>
+          {/* Login form */}
           <form onSubmit={handleSubmit}>
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
+            <div className={styles.field}>
+              <label className={styles.label}>Email</label>
+              <div className={styles.control}>
                 <input
-                  className="input"
+                  className={styles.input}
                   type="email"
                   placeholder="Enter your email"
                   value={email}
@@ -34,11 +35,11 @@ function SignInModal({ isOpen, onClose }) {
                 />
               </div>
             </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
+            <div className={styles.field}>
+              <label className={styles.label}>Password</label>
+              <div className={styles.control}>
                 <input
-                  className="input"
+                  className={styles.input}
                   type="password"
                   placeholder="Enter your password"
                   value={password}
@@ -47,10 +48,10 @@ function SignInModal({ isOpen, onClose }) {
                 />
               </div>
             </div>
-            <div className="field">
-              <div className="control">
-                <button className="button is-primary" type="submit">
-                  Sign In
+            <div className={styles.field}>
+              <div className={styles.control}>
+                <button className={styles.buttonPrimary} type="submit">
+                  Log In
                 </button>
               </div>
             </div>
@@ -61,4 +62,4 @@ function SignInModal({ isOpen, onClose }) {
   );
 }
 
-export default SignInModal;
+export default LoginModal;
