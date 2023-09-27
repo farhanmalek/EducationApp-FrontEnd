@@ -14,11 +14,59 @@ export default function ProjectLibrary() {
     });
   }
 
+  
+  const [filteredData, setFilteredData] = useState(data);
+  const [selectSub, setSelectSub] = useState([]);
+  const [selectDiff, setSelectDiff] = useState([]);
+  const [selectType, setSelectType] = useState([]);
+  const [selectYear, setSelectYear] = useState([]);
+  const [selectMatter, setSelectMatter] = useState([]);
+
+
+  const filterItems = () => {
+    
+    const filteredProjects = data.filter((project) => {
+      const subMatch = !selectSub || selectSub.includes(project.subscription);
+      const typeMatch = !selectType || selectType.includes(project.type);
+    
+      const matterMatch = !selectMatter || selectMatter.includes(project.subject);
+      console.log(subMatch,typeMatch,matterMatch)
+      return (subMatch && typeMatch && matterMatch)
+    })
+    setFilteredData(filteredProjects)
+  }
+
+
+  useEffect(() => {
+    filterItems();
+  },[selectSub])
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <NavBar/> 
       <div className={styles.mainContainer}>
-        <Filter />
+        <Filter 
+        selectSub = {selectSub}
+        setSelectSub = {setSelectSub}
+        selectDiff = {selectDiff}
+        setSelectDiff = {setSelectDiff}
+        selectType = {selectType}
+        setSelectType = {setSelectType}
+        selectYear = {selectYear}
+        setSelectYear = {setSelectYear}
+        selectMatter = {selectMatter}
+        setSelectMatter = {setSelectMatter}
+        />
         <div className={styles.contentBox}>
           <h1>Projects</h1>
           <h3>
@@ -41,7 +89,7 @@ export default function ProjectLibrary() {
             </div>
           </div>
           <div className={styles.displayProjects}>
-            {data.map((project) => (  // Moved the mapping function here
+            {filteredData.map((project) => (  // Moved the mapping function here
               <div className={styles.projectCard} key={project.id}>  {/* Added key */}
                 <Link to="/studentdashboard">
                   <img
