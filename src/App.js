@@ -9,6 +9,7 @@ import Home from "./pages/HomePage/Home"
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,8 @@ function App() {
       <Routes>
         <Route path="/projectlibrary" element = {<ProjectLibrary/>}/>
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
+        <Route path="/" element={<Home />} />
+
       </Routes>
 
       <Home/>

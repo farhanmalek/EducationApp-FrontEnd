@@ -16,6 +16,7 @@ import image11 from '../../assets/Home/Group 3.png';
 import image12 from '../../assets/Home/Group 4.png';
 import classroom from '../../assets/Home/classroom.png';
 import styles from './Home.module.css';
+import LoginModal from '../LogInPage';
 
 function Home() {
   const images = [image1, image2, image3, image4];
@@ -23,6 +24,19 @@ function Home() {
 
   const handleSlideChange = (index) => {
     setCurrentSlide(index);
+  };
+
+  // Create state variables and functions to manage the login modal
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  // Function to open the login modal
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
+  };
+
+  // Function to close the login modal
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
   };
 
   return (
@@ -43,6 +57,10 @@ function Home() {
               <button className={styles.signUpButton}>
                 Sign Up
               </button>
+              {/* Render the "Log In" button */}
+              <button className={styles.loginButton} onClick={openLoginModal}>
+                Log In
+              </button>
             </div>
           </header>
         </div>
@@ -60,6 +78,7 @@ function Home() {
             <img src={image8} alt="Additional Slide 4" />
           </div>
         </div>
+        {/* the right side of the container to hold the slideshow */}
         <div className={styles.rightColumn}>
           <Carousel
             selectedItem={currentSlide}
@@ -67,7 +86,7 @@ function Home() {
             showArrows={true}
             showStatus={false}
             showIndicators={true} // Display navigation dots
-            showThumbs={false}
+            showThumbs={false} // Show thumbnails of all avalable images
             infiniteLoop={true}
           >
             {images.map((image, index) => (
