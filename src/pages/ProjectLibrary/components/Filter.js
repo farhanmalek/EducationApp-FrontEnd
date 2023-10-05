@@ -5,8 +5,6 @@ import Checkbox from "./Checkbox";
 export default function Filter(
   {selectSub,
 setSelectSub,
-selectDiff,
-setSelectDiff,
 selectType,
 setSelectType,
 selectYear,
@@ -50,15 +48,6 @@ setSelectMatter}) {
         setSelectMatter(filter)
       } else {
         setSelectMatter([...selectMatter, name])
-      }
-    }
-
-    if ((name === "Beginner") || (name === "Intermediate") || (name === "Advanced")) {
-      if (selectDiff.includes(name)) {
-        const filter = selectDiff.filter((item) => item !== name)
-        setSelectDiff(filter)
-      } else {
-        setSelectDiff([...selectDiff, name])
       }
     }
   }
