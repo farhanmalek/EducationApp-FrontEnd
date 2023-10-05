@@ -1,0 +1,198 @@
+/* Home.module.css */
+
+.homeContainer {
+  font-family: Arial, sans-serif;
+  color: #333;
+  overflow: hidden;
+}
+
+.hero {
+  background-size: cover;
+  background-position: center center;
+  height: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.headerContent {
+  width: 30%;
+  padding: 0;
+  text-align: left;
+  margin-left: 140px;
+}
+
+.highlightedText {
+  color: #43c0f6;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.learnMoreButton {
+  background-color: white;
+  border: 2px solid #43c0f6;
+  color: #43c0f6;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.learnMoreButton:hover {
+  background-color: #43c0f6;
+  color: white;
+}
+
+.signUpButton {
+  background-color: hotpink;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.signUpButton:hover {
+  background-color: greenyellow;
+}
+
+.twoColumnSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftColumn {
+  flex: 1;
+  padding-right: 80px;
+  padding-left: 150px;
+}
+
+.rightColumn {
+  flex: 1;
+}
+
+.navigationDots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #000;
+}
+
+/* In your Home.module.css */
+
+.containerThree {
+  text-align: center; /* Center-align the content horizontally */
+  margin-top: 40px;
+}
+
+.textContainer {
+  margin-bottom: 20px; /* Add margin between text and images */
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center; /* Center images horizontally */
+  align-items: center;
+  margin-top: 20px;
+}
+
+.imageContainer img {
+  max-width: 100%;
+  margin: 0 10px; /* Add margin between images */
+}
+
+
+.additionalImagesHorizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.additionalImagesHorizontal img {
+  max-width: 100px;
+  margin-right: 10px;
+}
+
+.containerFour {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.buttonContainer .button {
+  display: inline-block;
+  margin: 10px;
+  padding: 2px 20px;
+  background-color: white;
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.buttonContainer .button:hover {
+  background-color: lightblue;
+  color: white;
+  border-color: white;
+}
+
+.sectionFive {
+  padding-left: 200px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.listItem {
+  margin-bottom: 0px;
+  margin-top: 10px;
+  padding-left: 30px;
+  background-image: url('../../assets/Home/star.png');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 30px 30px;
+  line-height: 20px;
+}
+
+.sectionSix {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.imageAndText {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  flex-basis: 50%;
+  margin-left: 100px;
+  padding: 70px;
+}
+
+.text {
+  flex-basis: 50%;
+  padding: 40px;
+}
