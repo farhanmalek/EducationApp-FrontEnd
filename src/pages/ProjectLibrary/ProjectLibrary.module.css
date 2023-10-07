@@ -114,11 +114,10 @@
 
 /* back to top button */
 .backToTopButton {
-  position: absolute;
-  top: 2412px;
-  left: 1499px;
-  width: 175px;
-  height: 35px;
+  margin: 50px;
+  padding: 10px;
+  position: relative;
+  margin-left: 2100px;
   background-color: goldenrod;
   font-weight: 900;
   color: white;

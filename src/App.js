@@ -19,11 +19,6 @@ function App() {
         <Route path="/" element={<Home />} />
 
       </Routes>
-
-      <Home/>
-      
-      <Footer>
-      </Footer>
     </div>
   );
 }

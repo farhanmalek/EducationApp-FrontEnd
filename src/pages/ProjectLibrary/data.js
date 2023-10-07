@@ -6,7 +6,7 @@ const data = [
         type: "Animation",
         year: 1,
         subject: "Computer Science",
-        subscription: "Free",
+        subscription: "0",
         image: "/images/projects/Project01.png"
     },
     {
@@ -16,7 +16,7 @@ const data = [
         type: "Game",
         year: 2,
         subject: "Maths",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project02.png"
     },
     {
@@ -26,7 +26,7 @@ const data = [
         type: "Chatbot",
         year: 3,
         subject: "Science",
-        subscription: "Free",
+        subscription: "0",
         image: "/images/projects/Project03.png"
     },
     {
@@ -36,7 +36,7 @@ const data = [
         type: "Augmented Reality",
         year: 4,
         subject: "Language",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project04.png"
     },
     {
@@ -46,7 +46,7 @@ const data = [
         type: "Animation",
         year: 5,
         subject: "Art",
-        subscription: "Free",
+        subscription: "0",
         image: "/images/projects/Project05.png"
     },
     {
@@ -56,7 +56,7 @@ const data = [
         type: "Game",
         year: 6,
         subject: "Music",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project06.png"
     },
     {
@@ -66,7 +66,7 @@ const data = [
         type: "Chatbot",
         year: 7,
         subject: "Computer Science",
-        subscription: "Free",
+        subscription: "0",
         image: "/images/projects/Project07.png"
     },
     {
@@ -76,7 +76,7 @@ const data = [
         type: "Augmented Reality",
         year: 8,
         subject: "Maths",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project08.png"
     },
     {
@@ -86,7 +86,7 @@ const data = [
         type: "Animation",
         year: 9,
         subject: "Science",
-        subscription: "Free",
+        subscription: "0",
         image: "/images/projects/Project09.png"
     },
     {
@@ -96,7 +96,7 @@ const data = [
         type: "Game",
         year: 10,
         subject: "Language",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project10.png"
     },
     {
@@ -106,7 +106,7 @@ const data = [
         type: "Chatbot",
         year: 11,
         subject: "Art",
-        subscription: "Free",
+        subscription: "0",
         image: "/images/projects/Project11.png"
     },
     {
@@ -116,7 +116,7 @@ const data = [
         type: "Augmented Reality",
         year: 12,
         subject: "Music",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project12.png"
     },
     {
@@ -126,7 +126,7 @@ const data = [
         type: "Animation",
         year: 13,
         subject: "Computer Science",
-        subscription: "Free",
+        subscription: "0",
         image: "/images/projects/Project13.png"
     },
     {
@@ -136,7 +136,7 @@ const data = [
         type: "Game",
         year: 12,
         subject: "Maths",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project14.png"
     },
     {
@@ -146,7 +146,7 @@ const data = [
         type: "Game",
         year: 12,
         subject: "Maths",
-        subscription: "Premium",
+        subscription: "1",
         image: "/images/projects/Project15.png"
     }
 ];

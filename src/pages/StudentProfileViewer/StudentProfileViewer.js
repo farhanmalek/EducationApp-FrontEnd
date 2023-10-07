@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./StudentProfileViewer.module.css"; // Adjust the import path as needed
 import { Link } from "react-router-dom";
+import NavBar from "../SharedItems/NavBar/NavBar";
 
 export default function StudentProfileViewer() {
   return (
     <>
+    <NavBar/>
       <div className={styles.mainContainer}>
         <div className={styles.imageCard}>
           <img

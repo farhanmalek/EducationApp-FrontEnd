@@ -16,7 +16,7 @@ import image11 from '../../assets/Home/Group 3.png';
 import image12 from '../../assets/Home/Group 4.png';
 import classroom from '../../assets/Home/classroom.png';
 import styles from './Home.module.css';
-import LoginModal from '../LogInPage';
+import LoginModal from '../LogInPage/LogInPage';
 
 function Home() {
   const images = [image1, image2, image3, image4];

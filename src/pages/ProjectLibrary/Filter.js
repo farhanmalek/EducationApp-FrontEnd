@@ -1,17 +1,7 @@
 import styles from "./ProjectLibrary.module.css";
 import { useState } from "react";
 
-export default function Filter({
-  subjectMatter,
-  yearLevel,
-  activityType,
-  subscription,
-  setSubscription,
-  setActivityType,
-  setYearLevel,
-  setSubjectMatter,
-  setFilteredList,
-}) {
+export default function Filter() {
   return (
     <div className={styles.filterContainer}>
       <div className={styles.subscription}>

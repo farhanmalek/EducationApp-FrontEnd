@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";  // Added useState
 import data from "./data";
 import NavBar from "../SharedItems/NavBar/NavBar"
+import Footer from "../SharedItems/Footer/Footer"
 
 export default function ProjectLibrary() {
   // Add scroll to top functionality, onclick
@@ -63,6 +64,7 @@ export default function ProjectLibrary() {
       <button className={styles.backToTopButton} onClick={handleBackToTop}>
         Back To Top
       </button>
+      <Footer/>
     </>
   );
 }
