@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react"; // Added useState
 import NavBar from "../SharedItems/NavBar/NavBar";
 import axios from "axios";
+import Footer from "../SharedItems/Footer/Footer"
 
 export default function ProjectLibrary() {
   // Add scroll to top functionality, onclick
@@ -20,7 +21,17 @@ export default function ProjectLibrary() {
   const [selectType, setSelectType] = useState([]);
   const [selectYear, setSelectYear] = useState([]);
   const [selectMatter, setSelectMatter] = useState([]);
-
+  const [limit, setLimit] = useState("All");
+//handle limit filter
+  function handleLimit(e) {
+    const limitter = e.target.innerText.toLowerCase();
+    if (limitter === "5" || limitter === "10") {
+      setLimit(parseInt(limitter));
+    } else {
+      setLimit("All")
+    }
+  }
+//handle difficulty feature
   function handleDiff(e) {
     const difficulty = e.target.innerText.toLowerCase();
     setSelectDiff(difficulty);
@@ -47,7 +58,8 @@ export default function ProjectLibrary() {
           activityType: selectType,
           subjectMatter: selectMatter,
           difficulty: selectDiff,
-          yearLevel: selectYear
+          yearLevel: selectYear,
+          limit
         }, {
           headers: {
             "Content-Type": "application/json"
@@ -56,7 +68,6 @@ export default function ProjectLibrary() {
   
         // Handle the response data here
         setFilteredData(data.data);
-        console.log(filteredData)
       } catch (error) {
         // Handle errors here
         console.error('Error submitting checkboxes:', error);
@@ -64,8 +75,7 @@ export default function ProjectLibrary() {
     };
   
     submitCheckbox();
-  }, [selectSub, selectDiff, selectMatter, selectType, selectYear]);
-  
+  }, [selectSub, selectDiff, selectMatter, selectType,selectYear,limit]);
 
   return (
     <>
@@ -89,16 +99,17 @@ export default function ProjectLibrary() {
           </h3>
           <div className={styles.filterButtons}>
             <div className={styles.filterButtonsLevel}>
-              <div onClick={handleDiff}>BEGINNER</div>
-              <div onClick={handleDiff}>INTERMEDIATE</div>
-              <div onClick={handleDiff}>ADVANCED</div>
+              <div className={` ${selectDiff === "beginner" ? styles.active : ''}`} onClick={handleDiff}>BEGINNER</div>
+              <div className={` ${selectDiff === "intermediate" ? styles.active : ''}`} onClick={handleDiff}>INTERMEDIATE</div>
+              <div className={` ${selectDiff === "advanced" ? styles.active : ''}`} onClick={handleDiff}>ADVANCED</div>
+
             </div>
             <div className={styles.filterProjectsDisplayed}>
               <h6>SHOW</h6>
               <div className={styles.filterSelector}>
-                <div>5</div>
-                <div>10</div>
-                <div>All</div>
+              <div onClick={handleLimit} className={`${limit === "5" ? styles.active : ''}`}>5</div>
+              <div onClick={handleLimit} className={`${limit === "10" ? styles.active : ''}`}>10</div>
+              <div onClick={handleLimit} className={`${limit === "All" ? styles.active : ''}`}>All</div>
               </div>
             </div>
           </div>
