@@ -1,10 +1,9 @@
 import styles from "./ProjectLibrary.module.css";
-import Filter from "./Filter";
+import Filter from "./components/Filter";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";  // Added useState
-import data from "./data";
-import NavBar from "../SharedItems/NavBar/NavBar"
-import Footer from "../SharedItems/Footer/Footer"
+import { useEffect, useState } from "react"; // Added useState
+import NavBar from "../SharedItems/NavBar/NavBar";
+import axios from "axios";
 
 export default function ProjectLibrary() {
   // Add scroll to top functionality, onclick
@@ -15,11 +14,73 @@ export default function ProjectLibrary() {
     });
   }
 
+  const [filteredData, setFilteredData] = useState([]);
+  const [selectSub, setSelectSub] = useState([]);
+  const [selectDiff, setSelectDiff] = useState("");
+  const [selectType, setSelectType] = useState([]);
+  const [selectYear, setSelectYear] = useState([]);
+  const [selectMatter, setSelectMatter] = useState([]);
+
+  function handleDiff(e) {
+    const difficulty = e.target.innerText.toLowerCase();
+    setSelectDiff(difficulty);
+  }
+
+  //Fetch all projects on initial mount
+  useEffect(() => {
+    const fetchAllData = async () => {
+      try {
+        const data = await axios.get("http://localhost:4000/projectlibrary");
+        setFilteredData(data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllData();
+  }, []);
+
+  useEffect(() => {
+    const submitCheckbox = async () => {
+      try {
+        const data = await axios.post("http://localhost:4000/projectlibrary/filter", {
+          subscription: selectSub,
+          activityType: selectType,
+          subjectMatter: selectMatter,
+          difficulty: selectDiff,
+          yearLevel: selectYear
+        }, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+  
+        // Handle the response data here
+        setFilteredData(data.data);
+        console.log(filteredData)
+      } catch (error) {
+        // Handle errors here
+        console.error('Error submitting checkboxes:', error);
+      }
+    };
+  
+    submitCheckbox();
+  }, [selectSub, selectDiff, selectMatter, selectType, selectYear]);
+  
+
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <div className={styles.mainContainer}>
-        <Filter />
+        <Filter
+          selectSub={selectSub}
+          setSelectSub={setSelectSub}
+          selectType={selectType}
+          setSelectType={setSelectType}
+          selectYear={selectYear}
+          setSelectYear={setSelectYear}
+          selectMatter={selectMatter}
+          setSelectMatter={setSelectMatter}
+        />
         <div className={styles.contentBox}>
           <h1>Projects</h1>
           <h3>
@@ -28,9 +89,9 @@ export default function ProjectLibrary() {
           </h3>
           <div className={styles.filterButtons}>
             <div className={styles.filterButtonsLevel}>
-              <div>BEGINNER</div>
-              <div>INTERMEDIATE</div>
-              <div>ADVANCED</div>
+              <div onClick={handleDiff}>BEGINNER</div>
+              <div onClick={handleDiff}>INTERMEDIATE</div>
+              <div onClick={handleDiff}>ADVANCED</div>
             </div>
             <div className={styles.filterProjectsDisplayed}>
               <h6>SHOW</h6>
@@ -42,22 +103,25 @@ export default function ProjectLibrary() {
             </div>
           </div>
           <div className={styles.displayProjects}>
-            {data.map((project) => (  // Moved the mapping function here
-              <div className={styles.projectCard} key={project.id}>  {/* Added key */}
-                <Link to="/studentdashboard">
-                  <img
-                    src={process.env.PUBLIC_URL + project.image}
-                    alt={project.name}
-                  />
-                </Link>
-                <h2>{project.name}</h2>
-                <div className={styles.projectDetails}>
-                  <p>{project.difficulty}</p>
-                  <p>|</p>
-                  <p>{project.type}</p>
+          {filteredData.map((project ) => (
+                <div className={styles.projectCard} key={project.project_id}>
+                  {" "}
+                  {/* Added key */}
+                  <Link to="/studentdashboard">
+                    <img
+                      src={project.project_pic}
+                      alt={project.name}
+                    />
+                  </Link>
+                  <h2>{project.name}</h2>
+                  <div className={styles.projectDetails}>
+                    <p>{project.course}</p>
+                    <p>|</p>
+                    <p>{project.subject_matter}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
       </div>
