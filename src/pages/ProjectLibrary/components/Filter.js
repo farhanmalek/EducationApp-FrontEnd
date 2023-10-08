@@ -12,14 +12,15 @@ setSelectYear,
 selectMatter,
 setSelectMatter}) {
 
-  function handleCheckBoxChange(name) {
+
+  function handleCheckBoxChange(name,values) {
 
     if ((name === "Free") || (name === "Premium")) {
-      if (selectSub.includes(name)) {
-        const filter = selectSub.filter((item) => item !== name)
+      if (selectSub.includes(values)) {
+        const filter = selectSub.filter((item) => item !== values)
         setSelectSub(filter)
       } else {
-        setSelectSub([...selectSub, name])
+        setSelectSub([...selectSub, values])
       }
     }
 
@@ -31,17 +32,17 @@ setSelectMatter}) {
         setSelectType([...selectType, name])
       }
     }
-
+    //Set year into year array, store values such as [[1,4],[5,6]] etc.
     if ((name === "1-4") || (name === "5-6") || (name === "7-8") || (name === "9-13")) {
-      if (selectYear.includes(name)) {
-        const filter = selectYear.filter((item) => item !== name)
+      const targetArray = values;
+      if (selectYear.some(subarray => JSON.stringify(subarray) === JSON.stringify(targetArray))) {
+        const filter = selectYear.filter((subarray) => JSON.stringify(subarray) !== JSON.stringify(targetArray))
         setSelectYear(filter)
       } else {
-        setSelectYear([...selectYear, name])
+        setSelectYear([...selectYear, values])
       }
     }
 
-    
     if ((name === "Computer Science") || (name === "Maths") || (name === "Science") || (name === "Language") || (name === "Art") || (name === "Music")) {
       if (selectMatter.includes(name)) {
         const filter = selectMatter.filter((item) => item !== name)
@@ -52,7 +53,6 @@ setSelectMatter}) {
     }
   }
 
-
   return (
     <div className={styles.filterContainer}>
       <div className={styles.subscription}>
@@ -62,12 +62,14 @@ setSelectMatter}) {
           handleCheckBoxChange = {handleCheckBoxChange}
             className={styles.filterItem}
             name="Free"
+            values ="0"
           />
 
           <Checkbox
           handleCheckBoxChange = {handleCheckBoxChange}
             className={styles.filterItem}
             name="Premium"
+            values="1"
           />
         </div>
       </div>
@@ -108,24 +110,28 @@ setSelectMatter}) {
           handleCheckBoxChange = {handleCheckBoxChange}
             className={styles.filterItem}
             name="1-4"
+            values={[1,4]}
           />
 
           <Checkbox
           handleCheckBoxChange = {handleCheckBoxChange}
             className={styles.filterItem}
             name="5-6"
+            values={[5,6]}
           />
 
           <Checkbox
           handleCheckBoxChange = {handleCheckBoxChange}
             className={styles.filterItem}
             name="7-8"
+            values={[7,8]}
           />
 
           <Checkbox
           handleCheckBoxChange = {handleCheckBoxChange}
             className={styles.filterItem}
             name="9-13"
+            values={[9,13]}
           />
         </div>
       </div>

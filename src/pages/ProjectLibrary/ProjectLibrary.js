@@ -2,8 +2,8 @@ import styles from "./ProjectLibrary.module.css";
 import Filter from "./components/Filter";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react"; // Added useState
-import data from "./data";
 import NavBar from "../SharedItems/NavBar/NavBar";
+import axios from "axios";
 
 export default function ProjectLibrary() {
   // Add scroll to top functionality, onclick
@@ -14,50 +14,58 @@ export default function ProjectLibrary() {
     });
   }
 
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [selectSub, setSelectSub] = useState([]);
   const [selectDiff, setSelectDiff] = useState("");
   const [selectType, setSelectType] = useState([]);
   const [selectYear, setSelectYear] = useState([]);
   const [selectMatter, setSelectMatter] = useState([]);
-  const [toggleDiff, setToggleDiff] = useState({
-    beginner: true,
-    intermediate: true,
-    advanced: true,
-  });
 
-  const filterItems = () => {
-    const filteredProjects = data.filter((project) => {
-      const subMatch =
-        selectSub.length === 0 || selectSub.includes(project.subscription);
-      const typeMatch =
-        selectType.length === 0 || selectType.includes(project.type);
-      const matterMatch =
-        selectMatter.length === 0 || selectMatter.includes(project.subject);
-      const diffMatch =
-        !selectDiff || selectDiff === project.difficulty.toLowerCase();
-      return subMatch && typeMatch && matterMatch && diffMatch;
-    });
-    setFilteredData(filteredProjects);
-  };
+  function handleDiff(e) {
+    const difficulty = e.target.innerText.toLowerCase();
+    setSelectDiff(difficulty);
+  }
+
+  //Fetch all projects on initial mount
+  useEffect(() => {
+    const fetchAllData = async () => {
+      try {
+        const data = await axios.get("http://localhost:4000/projectlibrary");
+        setFilteredData(data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAllData();
+  }, []);
 
   useEffect(() => {
-    filterItems();
-  }, [selectSub, selectDiff, selectType, selectMatter]);
-
-  function handleDiffChange(e) {
-    const difficulty = e.target.innerText.toLowerCase();
-    setToggleDiff((prevToggleDiff) => ({
-      ...prevToggleDiff,
-      beginner: !prevToggleDiff.beginner, intermediate: !prevToggleDiff.intermediate, advanced: !prevToggleDiff.advanced
-    }));
-    console.log(toggleDiff)
-    if (toggleDiff) {
-      setSelectDiff(difficulty);
-    } else {
-      setSelectDiff("")
-    }
-  }
+    const submitCheckbox = async () => {
+      try {
+        const data = await axios.post("http://localhost:4000/projectlibrary/filter", {
+          subscription: selectSub,
+          activityType: selectType,
+          subjectMatter: selectMatter,
+          difficulty: selectDiff,
+          yearLevel: selectYear
+        }, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+  
+        // Handle the response data here
+        setFilteredData(data.data);
+        console.log(filteredData)
+      } catch (error) {
+        // Handle errors here
+        console.error('Error submitting checkboxes:', error);
+      }
+    };
+  
+    submitCheckbox();
+  }, [selectSub, selectDiff, selectMatter, selectType, selectYear]);
+  
 
   return (
     <>
@@ -81,9 +89,9 @@ export default function ProjectLibrary() {
           </h3>
           <div className={styles.filterButtons}>
             <div className={styles.filterButtonsLevel}>
-              <div onClick={handleDiffChange}>BEGINNER</div>
-              <div onClick={handleDiffChange}>INTERMEDIATE</div>
-              <div onClick={handleDiffChange}>ADVANCED</div>
+              <div onClick={handleDiff}>BEGINNER</div>
+              <div onClick={handleDiff}>INTERMEDIATE</div>
+              <div onClick={handleDiff}>ADVANCED</div>
             </div>
             <div className={styles.filterProjectsDisplayed}>
               <h6>SHOW</h6>
@@ -95,24 +103,21 @@ export default function ProjectLibrary() {
             </div>
           </div>
           <div className={styles.displayProjects}>
-            {filteredData.map(
-              (
-                project // Moved the mapping function here
-              ) => (
-                <div className={styles.projectCard} key={project.id}>
+          {filteredData.map((project ) => (
+                <div className={styles.projectCard} key={project.project_id}>
                   {" "}
                   {/* Added key */}
                   <Link to="/studentdashboard">
                     <img
-                      src={process.env.PUBLIC_URL + project.image}
+                      src={project.project_pic}
                       alt={project.name}
                     />
                   </Link>
                   <h2>{project.name}</h2>
                   <div className={styles.projectDetails}>
-                    <p>{project.difficulty}</p>
+                    <p>{project.course}</p>
                     <p>|</p>
-                    <p>{project.type}</p>
+                    <p>{project.subject_matter}</p>
                   </div>
                 </div>
               )
