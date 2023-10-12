@@ -39,21 +39,9 @@ export default function ProjectLibrary() {
 
   //Fetch all projects on initial mount
   useEffect(() => {
-    const fetchAllData = async () => {
-      try {
-        const data = await axios.get("http://localhost:4000/projectlibrary");
-        setFilteredData(data.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchAllData();
-  }, []);
-
-  useEffect(() => {
     const submitCheckbox = async () => {
       try {
-        const data = await axios.post("http://localhost:4000/projectlibrary/filter", {
+        const data = await axios.post("http://localhost:4000/projectlibrary", {
           subscription: selectSub,
           activityType: selectType,
           subjectMatter: selectMatter,
