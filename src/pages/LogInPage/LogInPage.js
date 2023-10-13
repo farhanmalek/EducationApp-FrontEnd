@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './LoginModal.module.css';
+import styles from './LogInPage.module.css';
 
 function LoginModal({ isOpen, onClose }) {
   const [email, setEmail] = useState('');
