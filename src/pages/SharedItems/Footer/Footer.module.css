@@ -1,0 +1,54 @@
+/* Footer.module.css */
+
+.footer {
+  background-color: #B2E4FA;
+  color: #707070;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Open Sans','Regular';
+}
+
+.footerColumn {
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  text-align: left;
+}
+
+.footerColumn h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footerColumn p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Add a new class for the fifth column */
+.footerColumn5 {
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  text-align: left;
+}
+
+.footerColumn5 h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footerColumn5 p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.footerColumn {
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  text-align: left;
+}
