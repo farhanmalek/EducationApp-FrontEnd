@@ -1,16 +1,57 @@
 import React from "react";
 import styles from "./StudentProfileViewer.module.css"; // Adjust the import path as needed
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../SharedItems/NavBar/NavBar";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
 
 export default function StudentProfileViewer() {
+    //Get logged in persons data from database;
+    const [userName, setUserName] = useState("");
+    const [userImage, setUserImage] = useState("");
+    const [email, setEmail] = useState("");
+    const [school, setSchool] = useState("");
+    const [dob, setDob] = useState("");
+    const [course, setCourse] = useState("");
+  // To navigate user away if they are not logged in.
+    const navigate = useNavigate();
+    axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("http://localhost:5000");
+        if (response.data.Error === "Not authenticated") {
+          navigate("/");
+        } else {
+          setUserName(response.data.name);
+          setUserImage(response.data.profile)
+          setCourse(response.data.course);
+          setDob(response.data.dob);
+          setEmail(response.data.email)
+          setSchool(response.data.school);
+
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+
+
+
   return (
     <>
-    <NavBar/>
+    <NavBar userName={userName} userImage={userImage}/>
       <div className={styles.mainContainer}>
         <div className={styles.imageCard}>
           <img
-            src={process.env.PUBLIC_URL + "/images/students/RawiriFletcher.png"}
+            src={userImage}
             alt="student"
           />
           <div className={styles.imageButtons}>
@@ -21,7 +62,7 @@ export default function StudentProfileViewer() {
         <div className={styles.buttonAndCard}>
           <div className={styles.infoCard}>
             <div className={styles.studentName}>
-              <p>Rawiri Fletcher</p>
+              <p>{userName}</p>
             </div>
             <div className={styles.infoCardDetails}>
               <div className={styles.studentDetailsLeft}>
@@ -35,10 +76,10 @@ export default function StudentProfileViewer() {
               <div className={styles.studentDetailsRight}>
                 <p>Homai School</p>
                 <p>Jasmina Salvado</p>
-                <p>Beginner</p>
-                <p>25 June 2010</p>
+                <p>{course}</p>
+                <p>{dob}</p>
                 <p>022 524 6399</p>
-                <p>fletchy.r@gmail.com</p>
+                <p>{email}</p>
               </div>
             </div>
           </div>

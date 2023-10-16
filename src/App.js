@@ -3,7 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary";
 import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer";
 import React from "react"
-import Home from "./pages/HomePage/Home"
+import LogInPage from "./pages/LogInPage/LogInPage"
+import Home from './pages/HomePage/Home';
 
 
 
@@ -15,7 +16,8 @@ function App() {
       <Routes>
         <Route path="/projectlibrary" element = {<ProjectLibrary/>}/>
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LogInPage/>} />
+        <Route path='/home' element = {<Home/>}/>
 
       </Routes>
     </div>

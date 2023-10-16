@@ -1,65 +1,79 @@
-import React, { useState } from 'react';
-import styles from './LogInPage.module.css';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import styles from "./LogInPage.module.css"; // Importing the CSS module
 
-function LoginModal({ isOpen, onClose }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+function Login() {
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  axios.defaults.withCredentials = true;
+
+  function handleSubmit(e) {
     e.preventDefault();
-    // Add your login logic here
-    // You can make an API request or handle login within this component
+    loginUser();
+  }
+
+  const loginUser = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/login", {
+        email,
+        password,
+      });
+      console.log(response);
+      if (response.status === 200) {
+        alert("Logged in");
+        navigate("/projectlibrary");
+      } else {
+        setMessage("Invalid credentials!");
+      }
+    } catch (err) {
+      console.error("Error logging in", err);
+    }
   };
 
   return (
-    <div className={`${styles.modal} ${isOpen ? styles.isActive : ''}`}>
-      <div className={styles.modalBackground} onClick={onClose}></div>
-      <div className={styles.modalCard}>
-        <header className={styles.modalCardHead}>
-          <p className={styles.modalCardTitle}>Log In</p>
-          <button className={styles.delete} aria-label="close" onClick={onClose}></button>
-        </header>
-        <section className={styles.modalCardBody}>
-          {/* Login form */}
-          <form onSubmit={handleSubmit}>
-            <div className={styles.field}>
-              <label className={styles.label}>Email</label>
-              <div className={styles.control}>
-                <input
-                  className={styles.input}
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
-            <div className={styles.field}>
-              <label className={styles.label}>Password</label>
-              <div className={styles.control}>
-                <input
-                  className={styles.input}
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
-            <div className={styles.field}>
-              <div className={styles.control}>
-                <button className={styles.buttonPrimary} type="submit">
-                  Log In
-                </button>
-              </div>
-            </div>
-          </form>
-        </section>
+    <>
+      <div className={styles.form}>
+        <h1>Login</h1>
+        <form>
+          <div className={styles.formGroup}>
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="someone@example.com"
+              className={styles.formControl}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              className={styles.formControl}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button
+            type="submit"
+            className={styles.btnLogin}
+            onClick={handleSubmit}
+          >
+            Login
+          </button>
+          <p className={styles.displayMessage}>{message}</p>
+          <p>
+            Do you have an account? Create one here{" "}
+            <Link to="/register">Register</Link>
+          </p>
+        </form>
       </div>
-    </div>
+    </>
   );
 }
 
-export default LoginModal;
+export default Login;

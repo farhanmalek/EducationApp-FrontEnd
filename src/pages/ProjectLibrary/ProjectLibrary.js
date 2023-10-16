@@ -1,6 +1,6 @@
 import styles from "./ProjectLibrary.module.css";
 import Filter from "./components/Filter";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"; // Added useState
 import NavBar from "../SharedItems/NavBar/NavBar";
 import axios from "axios";
@@ -41,7 +41,7 @@ export default function ProjectLibrary() {
   useEffect(() => {
     const submitCheckbox = async () => {
       try {
-        const data = await axios.post("http://localhost:4000/projectlibrary", {
+        const data = await axios.post("http://localhost:5000/projectlibrary", {
           subscription: selectSub,
           activityType: selectType,
           subjectMatter: selectMatter,
@@ -65,9 +65,37 @@ export default function ProjectLibrary() {
     submitCheckbox();
   }, [selectSub, selectDiff, selectMatter, selectType,selectYear,limit]);
 
+  //Get logged in persons data from database;
+  const [userName, setUserName] = useState("");
+  const [userImage, setUserImage] = useState("");
+// To navigate user away if they are not logged in.
+  const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("http://localhost:5000");
+        if (response.data.Error === "Not authenticated") {
+          navigate("/");
+        } else {
+          console.log(response.data)
+          setUserName(response.data.name);
+          setUserImage(response.data.profile);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+
+
   return (
     <>
-      <NavBar />
+      <NavBar userName={userName} userImage={userImage}/>
       <div className={styles.outer}>
       <div className={styles.mainContainer}>
       <div className={styles.contentBox}>

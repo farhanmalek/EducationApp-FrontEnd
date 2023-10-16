@@ -6,13 +6,19 @@ import maoriFlag from "../../../assets/NavBar/MaoriFlag.png";
 import DropDown from "./DropDown";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function NavBar() {
+import axios from "axios";
+import defaultImg from "../../../assets/NavBar/Avatar-white.png";
+import Login from "../../LogInPage/Login";
+export default function NavBar({ userName, userImage }) {
   const [isToggled, setIsToggled] = useState(false);
+  axios.defaults.withCredentials = true;
+  const [showModal, setShowModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
 
- 
-
-
-  
+  const handleLogin = () => {
+    setShowModal(!showModal);
+    setLoginModal(!loginModal);
+  };
 
   return (
     <>
@@ -30,17 +36,21 @@ export default function NavBar() {
         </div>
         <div className={styles.rightcontainer}>
           <div
-            onClick={() => setIsToggled(!isToggled)}
+            onClick={() => userName && setIsToggled(!isToggled)}
             className={styles.profile}
           >
             <img
               className={styles.navbarimg}
-              src={
-                process.env.PUBLIC_URL + "/images/students/RawiriFletcher.png"
-              }
+              src={userImage ? userImage : defaultImg}
               alt="logged-in-profile"
             />
-            <p>Rawiri Fletcher</p>
+            <p>
+              {userName ? (
+                userName
+              ) : (
+                <button onClick={handleLogin}>Login</button>
+              )}
+            </p>
           </div>
           <div className={styles.misc}>
             <p>LANG</p>
@@ -51,6 +61,7 @@ export default function NavBar() {
       </div>
       {/* Render dropdown component onclick */}
       {isToggled && <DropDown />}
+      {showModal && <Login setShowModal={setShowModal} showModal={showModal} loginModal={loginModal} setLoginModal={setLoginModal}/>}
     </>
   );
 }

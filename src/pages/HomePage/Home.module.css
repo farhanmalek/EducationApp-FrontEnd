@@ -1,198 +1,232 @@
-/* Home.module.css */
 
-.homeContainer {
-  font-family: Arial, sans-serif;
-  color: #333;
-  overflow: hidden;
-}
-
+/* Style Hero Div */
 .hero {
-  background-size: cover;
-  background-position: center center;
-  height: 400px;
+background-image: url("../../assets/Home/hero.png");
+height: 400px;
+display: flex;
+align-items: center;
+}
+
+.heroContent {
+  margin-left: 180px;
+  font-family: 'Nunito', sans-serif;
+  width: 588px;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  position: relative;
+  flex-direction: column;
+  gap: 10px;
+ 
 }
 
-.headerContent {
-  width: 30%;
-  padding: 0;
-  text-align: left;
-  margin-left: 140px;
+.heroContent h2 {
+  font-size: 60px;
+  color: #6C6C6C;
+
+}
+.heroContent h2 > span {
+  color:#42C0F6 ;
 }
 
-.highlightedText {
-  color: #43c0f6;
+.heroContent p:nth-child(2) {
+
+  font-family: 'Open Sans', sans-serif;
+  color: #6C6C6C;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.buttonContainer {
-  text-align: center;
-  margin-top: 20px;
+.heroButtons {
+  display:flex ;
+  justify-content: flex-end;
+  gap: 72px ;
 }
 
-.learnMoreButton {
-  background-color: white;
-  border: 2px solid #43c0f6;
-  color: #43c0f6;
-  padding: 10px 20px;
-  margin-right: 10px;
-  cursor: pointer;
+.heroButtons {
+  display: flex;
+  font-size: 11px;
+  height: 35px;
 }
 
-.learnMoreButton:hover {
-  background-color: #43c0f6;
+.heroButtons button:nth-child(1) {
+ border-radius: 8px;
+ border: 3px solid #42C0F6 ;
+ width: 175px;
+ font-weight: bold;
+ font-family: 'Open Sans';
+ box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.heroButtons button:nth-child(2) {
+  border-radius: 8px;
+  background-color: rgb(190, 27, 190) ;
   color: white;
-}
-
-.signUpButton {
-  background-color: hotpink;
-  color: white;
-  padding: 10px 20px;
+  width: 175px;
+  font-weight: bold;
+  font-family: 'Open Sans';
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   cursor: pointer;
-}
+ }
+  .heroContent p:last-child {
+  font-size: 11px;
+  align-self: flex-end;
+  width: 175px ;
+ }
 
-.signUpButton:hover {
-  background-color: greenyellow;
-}
-
-.twoColumnSection {
+ /* Style second section of page ".content" box */
+ .content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  justify-content: space-evenly;
+  align-items: flex-end;
+ }
 
-.leftColumn {
-  flex: 1;
-  padding-right: 80px;
-  padding-left: 150px;
-}
-
-.rightColumn {
-  flex: 1;
-}
-
-.navigationDots {
+ .contentContainerOne {
+  font-family: 'Open Sans', sans-serif;
+  width: 700px;
   display: flex;
+  flex-direction: column;
+  color: #6C6C6C;
+  gap: 80px;
+ }
+
+ .contentContainerOne div:nth-child(1) h2 {
+  font-size: 42px;
+ }
+
+ .contentContainerOne div:nth-child(1) {
+  font-size: 20px;
+ }
+
+ .contentContainerOne div:nth-child(2) h2 {
+  font-size: 30px;
+ }
+
+ .contentContainerTwo {
+  display: flex;
+  flex-direction: column;
+ }
+
+ .slideShow {
+  display: flex;
+  justify-content: space-evenly;
+  width: 160px;
+  align-self: center;
+ }
+
+ .slideShow > div{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  background-color: white; 
+}
+
+.slideShow > div.active {
+  background-color: #6C6C6C;
+}
+
+/* styling content 2 container */
+
+.contentTwo {
+  margin-top: 134px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
+  gap: 30px;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+.contentTwo h2:nth-child(1) {
+  color: #6C6C6C;
+  font-size: 30px;
 }
 
-.dot.active {
-  background-color: #000;
+.contentTwo h2:nth-child(3) {
+  font-weight: bolder;
+  color: #6C6C6C;
+  font-size: 42px;
 }
 
-/* In your Home.module.css */
-
-.containerThree {
-  text-align: center; /* Center-align the content horizontally */
-  margin-top: 40px;
-}
-
-.textContainer {
-  margin-bottom: 20px; /* Add margin between text and images */
-}
-
-.imageContainer {
+.contentTwoImages {
   display: flex;
-  justify-content: center; /* Center images horizontally */
-  align-items: center;
+  gap: 50px;
+}
+
+.buttons {
+  display: flex;
+  gap: 100px;
+}
+
+.buttons button {
+    border-radius: 8px;
+    border: 3px solid #42C0F6 ;
+    width: 250px;
+    height: 35px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    cursor: pointer;
+}
+/* Style the clickable info boxes */
+.clickable {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif ;
+  background-color: rgb(233, 233, 233);
+  gap: 30px;
+  color: #606060;
+  font-weight: 900;
+}
+
+.bulletPoint {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 282px;
+}
+.bulletPoint img {
+  width: 40px;
+  height: 40px;
+}
+
+.clickable h1 {
+  margin-left: 282px;
   margin-top: 20px;
+  font-size: 30px;
 }
 
-.imageContainer img {
-  max-width: 100%;
-  margin: 0 10px; /* Add margin between images */
+.clickable > p:nth-child(2) {
+  margin-left: 282px;
 }
 
+.buttons > button.activeButton {
+  background-color: rgb(233, 233, 233);
+  border: none;
+}
 
-.additionalImagesHorizontal {
+/* Final Container */
+.lastContainer {
+  font-family: "Open Sans", sans-serif;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  color: #6C6C6C;
 }
 
-.additionalImagesHorizontal img {
-  max-width: 100px;
-  margin-right: 10px;
-}
-
-.containerFour {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.buttonContainer .button {
-  display: inline-block;
-  margin: 10px;
-  padding: 2px 20px;
-  background-color: white;
-  border: 2px solid lightblue;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.buttonContainer .button:hover {
-  background-color: lightblue;
-  color: white;
-  border-color: white;
-}
-
-.sectionFive {
-  padding-left: 200px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.listItem {
-  margin-bottom: 0px;
-  margin-top: 10px;
-  padding-left: 30px;
-  background-image: url('../../assets/Home/star.png');
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  background-size: 30px 30px;
-  line-height: 20px;
-}
-
-.sectionSix {
+.startToday {
+  width: 610px;
+  gap: 50px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
+  flex-direction: column;
+}
+.startToday > h1 {
+font-size: 42px;
+}
+.startToday p {
+font-size: 20px;
+font-weight: bold;
 }
 
-.imageAndText {
-  flex: 1;
+.startToday > .heroButtons {
   display: flex;
-  align-items: center;
-}
-
-.image {
-  flex-basis: 50%;
-  margin-left: 100px;
-  padding: 70px;
-}
-
-.text {
-  flex-basis: 50%;
-  padding: 40px;
+  justify-content: center;
 }
