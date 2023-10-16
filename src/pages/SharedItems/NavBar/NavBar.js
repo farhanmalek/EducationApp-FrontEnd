@@ -9,16 +9,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import defaultImg from "../../../assets/NavBar/Avatar-white.png";
 import Login from "../../LogInPage/Login";
-export default function NavBar({ userName, userImage }) {
+export default function NavBar({ userName, userImage,showModal,setShowModal,loginModal,setLoginModal,handleLogin}) {
   const [isToggled, setIsToggled] = useState(false);
   axios.defaults.withCredentials = true;
-  const [showModal, setShowModal] = useState(false);
-  const [loginModal, setLoginModal] = useState(false);
+  
 
-  const handleLogin = () => {
-    setShowModal(!showModal);
-    setLoginModal(!loginModal);
-  };
 
   return (
     <>

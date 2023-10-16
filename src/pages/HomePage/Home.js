@@ -23,9 +23,6 @@ import Footer from "../SharedItems/Footer/Footer";
 function Home() {
   const myImageArray = [laptop1, laptop2, laptop3, laptop4];
   const [images, setImages] = useState(laptop1);
- 
-
-  
 
   const handleLaptopClick = (e) => {
     if (e.target.alt === "animation") {
@@ -46,9 +43,23 @@ function Home() {
     setDescription(e.target.name);
   };
 
+  const [showModal, setShowModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
+  const handleLogin = () => {
+    setShowModal(!showModal);
+    setLoginModal(!loginModal);
+  };
+
   return (
     <>
-      <NavBar/>
+      <NavBar
+        handleLogin={handleLogin}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        loginModal={loginModal}
+        setLoginModal={setLoginModal}
+      />
       <div className={styles.hero}>
         <div className={styles.heroContent}>
           <h2>
@@ -60,7 +71,7 @@ function Home() {
           </p>
           <div className={styles.heroButtons}>
             <button>Learn More</button>
-            <button>Sign Up</button>
+            <button onClick={handleLogin}>Sign Up</button>
           </div>
           <p>
             *Basic subscription includes the first 15 projects free of charge.
@@ -174,11 +185,13 @@ function Home() {
           </p>
           <div className={styles.heroButtons}>
             <button>Enquire Now</button>
-            <button>Sign Up</button>
+            <button onClick={handleLogin}>Sign Up</button>
           </div>
         </div>
       </div>
+
       <Footer />
+      {showModal && <Login setShowModal={setShowModal} showModal={showModal} loginModal={loginModal} setLoginModal={setLoginModal}/>}
     </>
   );
 }
