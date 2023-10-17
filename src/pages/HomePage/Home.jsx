@@ -15,10 +15,10 @@ import classroom from "../../assets/Home/classroom.png";
 import styles from "./Home.module.css";
 import Login from "../LogInPage/Login";
 import NavBar from "../SharedItems/NavBar/NavBar";
-import LearningPathways from "./LearningPathways";
-import DigitalTechnologies from "./DigitalTechnologies";
-import KeyCompetencies from "./KeyCompetencies";
-import IR from "./IR";
+import LearningPathways from "./components/LearningPathways";
+import DigitalTechnologies from "./components/DigitalTechnologies";
+import KeyCompetencies from "./components/KeyCompetencies";
+import IR from "./components/IR";
 import Footer from "../SharedItems/Footer/Footer";
 function Home() {
   const myImageArray = [laptop1, laptop2, laptop3, laptop4];

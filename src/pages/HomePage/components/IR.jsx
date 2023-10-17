@@ -1,5 +1,5 @@
-import star from "../../assets/Home/star.png";
-import styles from "./Home.module.css";
+import star from "../../../assets/Home/star.png";
+import styles from "../Home.module.css";
 
 function IR() {
   return (

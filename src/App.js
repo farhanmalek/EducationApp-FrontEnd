@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary";
 import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer";
 import React from "react"
-import LogInPage from "./pages/LogInPage/LogInPage"
 import Home from './pages/HomePage/Home';
 
 
