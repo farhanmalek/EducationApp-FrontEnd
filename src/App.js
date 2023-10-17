@@ -16,8 +16,7 @@ function App() {
       <Routes>
         <Route path="/projectlibrary" element = {<ProjectLibrary/>}/>
         <Route path="/studentprofile" element = {<StudentProfileViewer/>}/>
-        <Route path="/" element={<LogInPage/>} />
-        <Route path='/home' element = {<Home/>}/>
+        <Route path="/" element={<Home/>} />
 
       </Routes>
     </div>

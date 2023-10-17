@@ -45,10 +45,15 @@ function Home() {
 
   const [showModal, setShowModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
     setShowModal(!showModal);
-    setLoginModal(!loginModal);
+    if (e.target.name === "signup") {
+      setSignUpModal(!signUpModal);
+    } else {
+      setLoginModal(!loginModal);
+    }
   };
 
   return (
@@ -59,6 +64,8 @@ function Home() {
         setShowModal={setShowModal}
         loginModal={loginModal}
         setLoginModal={setLoginModal}
+        signUpModal={signUpModal}
+        setSignUpModal={signUpModal}
       />
       <div className={styles.hero}>
         <div className={styles.heroContent}>
@@ -71,7 +78,9 @@ function Home() {
           </p>
           <div className={styles.heroButtons}>
             <button>Learn More</button>
-            <button onClick={handleLogin}>Sign Up</button>
+            <button name="signup" onClick={handleLogin}>
+              Sign Up
+            </button>
           </div>
           <p>
             *Basic subscription includes the first 15 projects free of charge.
@@ -185,13 +194,24 @@ function Home() {
           </p>
           <div className={styles.heroButtons}>
             <button>Enquire Now</button>
-            <button onClick={handleLogin}>Sign Up</button>
+            <button name="signup" onClick={handleLogin}>
+              Sign Up
+            </button>
           </div>
         </div>
       </div>
 
       <Footer />
-      {showModal && <Login setShowModal={setShowModal} showModal={showModal} loginModal={loginModal} setLoginModal={setLoginModal}/>}
+      {showModal && (
+        <Login
+          setShowModal={setShowModal}
+          showModal={showModal}
+          loginModal={loginModal}
+          setLoginModal={setLoginModal}
+          signUpModal={signUpModal}
+          setSignUpModal={setSignUpModal}
+        />
+      )}
     </>
   );
 }

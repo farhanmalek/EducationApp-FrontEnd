@@ -108,3 +108,13 @@ p,a {
   z-index: 1000000;
   background-color: #fdf7d3;
 }
+
+.loginBtn {
+  background-color: transparent; 
+  cursor: pointer;
+  color: white; 
+  border: none;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}

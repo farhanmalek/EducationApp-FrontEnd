@@ -6,23 +6,34 @@ import teachers from "../../assets/LoginSignup/teachers.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-function Login({ setShowModal, setLoginModal, loginModal,showModal}) {
+function Login({ setShowModal, setLoginModal, loginModal,showModal,signUpModal,setSignUpModal}) {
+  //Declare states and setup variables
+  axios.defaults.withCredentials = true;
   const navigate = useNavigate();
 
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
   const [message, setMessage] = useState("");
-  const [signUpModal, setSignUpModal] = useState(false);
-  axios.defaults.withCredentials = true;
-
+  const [isTeacher, setIsTeacher] = useState("");
+  
+ //Login user function
   function handleSubmit(e) {
     e.preventDefault();
-    loginUser();
+    if (e.target.name === "student") {
+     
+      loginUser("/student")
+    } else if (e.target.name === "teacher") {
+      loginUser("/teacher");
+     
+    }
+  
   }
 
-  const loginUser = async () => {
+  const loginUser = async (path) => {
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post(`http://localhost:5000/login${path}`, {
         email,
         password,
       });
@@ -37,11 +48,53 @@ function Login({ setShowModal, setLoginModal, loginModal,showModal}) {
     }
   };
 
+  //Open Signup modal and redirect to signup page on modal when any signup buttons clicked.
   const handleSignUp = () => {
     setSignUpModal(true);
     setLoginModal(false);
 
   };
+
+// Setup Register Feature
+function handleRegisterSubmit (e) {
+  e.preventDefault();
+  if (password === passwordCheck) {
+    if (e.target.name === "student") {
+      setIsTeacher(0);
+      registerUser("/student")
+    } else if (e.target.name === "teacher") {
+      registerUser("/teacher");
+      setIsTeacher(1);
+    }
+
+  } else {
+    setMessage("Passwords do not match!");
+  }
+}
+
+const registerUser = async (path) => {
+  try {
+    const response = await axios.post(`http://localhost:5000/register${path}`, {
+      fullName,
+      email,
+      password,
+      isTeacher
+    });
+    if (response.status === 200) {
+      alert("Registeration Successful");
+    }
+  } catch (err) {
+    console.error("Error with request", err);
+  } finally {
+    setEmail("");
+    setPassword("");
+  }
+};
+
+
+
+
+
 
   return (
     <div className={styles.loginContainer}>
@@ -69,6 +122,14 @@ function Login({ setShowModal, setLoginModal, loginModal,showModal}) {
         </div>
         <div className={styles.form}>
           <form>
+            {signUpModal &&  <div className={styles.formInput}>
+              <input
+                type="text"
+                name="fullname"
+                placeholder="Full Name"
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>}
             <div className={styles.formInput}>
               <input
                 type="email"
@@ -91,21 +152,23 @@ function Login({ setShowModal, setLoginModal, loginModal,showModal}) {
                   type="password"
                   name="password"
                   placeholder="Confirm Password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPasswordCheck(e.target.value)}
                 />
               </div>
             )}
             {signUpModal ? (
               <button
                 type="submit"
+                name="student"
                 className={styles.inputButton}
-                onClick={handleSubmit}
+                onClick={handleRegisterSubmit}
               >
                 SignUp
               </button>
             ) : (
               <button
                 type="submit"
+                name="student"
                 className={styles.inputButton}
                 onClick={handleSubmit}
               >
@@ -149,6 +212,15 @@ function Login({ setShowModal, setLoginModal, loginModal,showModal}) {
         </div>
         <div className={styles.form}>
           <form>
+          {signUpModal &&  <div className={styles.formInput}>
+              <input
+                type="text"
+                name="fullname"
+                placeholder="Full Name"
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>}
+
             <div className={styles.formInput}>
               <input
                 type="email"
@@ -171,21 +243,23 @@ function Login({ setShowModal, setLoginModal, loginModal,showModal}) {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPasswordCheck(e.target.value)}
                 />
               </div>
             )}
             {signUpModal ? (
               <button
                 type="submit"
+                name="teacher"
                 className={styles.inputButton}
-                onClick={handleSubmit}
+                onClick={handleRegisterSubmit}
               >
                 Sign Up
               </button>
             ) : (
               <button
                 type="submit"
+                name="teacher"
                 className={styles.inputButton}
                 onClick={handleSubmit}
               >
@@ -197,6 +271,7 @@ function Login({ setShowModal, setLoginModal, loginModal,showModal}) {
         </div>
       </div>
     </div>
+    
   );
 }
 

@@ -43,7 +43,7 @@ export default function NavBar({ userName, userImage,showModal,setShowModal,logi
               {userName ? (
                 userName
               ) : (
-                <button onClick={handleLogin}>Login</button>
+                <button className={styles.loginBtn} onClick={handleLogin}>REGISTER | LOGIN</button>
               )}
             </p>
           </div>
