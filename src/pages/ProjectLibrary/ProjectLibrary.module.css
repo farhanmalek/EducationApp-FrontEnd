@@ -4,27 +4,14 @@
   box-sizing: border-box;
 
 }
-
-
-.outer {
-  display: flex;
-  flex-direction: column;
-}
 /*Styling the main container */
 .mainContainer {
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   margin-left: 255px;
   gap: 119.5px;
   font-family: "Open Sans", sans-serif;
   color: #6c6c6c;
-  margin-right: 20px;
-}
-
-.extraDiv {
-  display: flex;
-  gap: 200px;
 }
 
 .contentBox h1 {
@@ -33,59 +20,31 @@
   font-weight: 900;
   color: #6c6c6c;
   margin-top: 152px;
-  
 
 }
-.contentBox {
-  display: flex;
-  margin-left: 320px;
-
-}
-
-.titles {
-  flex: 1;
-}
-
-
 .contentBox h3 {
   font-size: 20px;
 }
-
-/* Styling for the difficulty buttons */
+/* Styling for the difficulty selector */
 .filterButtonsLevel {
   display: flex;
   background-color: rgb(238, 238, 238);
-
+  width: 348px;
   height: 21px;
   justify-content: space-evenly;
-  font-size: 8px;
+  font-size: 12px;
   font-weight: bold;
   align-items: center;
   border-radius: 4px;
   margin-top: 107px;
   cursor: pointer;
 }
-
-.filterButtonsLevel button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 8px 16px;
-  font-size: 12px;
+.filterButtonsLevel div:nth-child(2) {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding-left: 21px;
+  padding-right: 21px;
 }
-
-.filterButtonsLevel button:focus {
-  outline: none;
-}
-
-.filterButtonsLevel button.active {
-  background-color: #007bff;
-  color: #ffffff;
-  border-radius: 4px;
-}
-
-
-
 
 /* Styling for the filter container only */
 .filterContainer {
@@ -95,7 +54,7 @@
   height: 658px;
   justify-content: space-around;
   font-size: 14px;
-  
+  margin-top: 310px;
 }
 
 .filterItem {
@@ -136,12 +95,10 @@
 }
 
 .displayProjects {
+  margin-top: 38.5px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  min-width: 1500px;
-  align-items: flex-start;
-
 }
 
 .projectCard {
@@ -160,6 +117,8 @@
 .backToTopButton {
   margin: 50px;
   padding: 10px;
+  position: relative;
+  margin-left: 2100px;
   background-color: goldenrod;
   font-weight: 900;
   color: white;
@@ -182,16 +141,13 @@
   width: 220px;
 }
 
-.button {
-  align-self: flex-end;
-}
-
 /* styling the show filter */
 
 .filterSelector {
   display: flex;
   background-color: rgb(238, 238, 238);
   height: 21px;
+  width: 155px;
   justify-content: space-evenly;
   font-size: 12px;
   font-weight: bold;
@@ -199,23 +155,18 @@
   border-radius: 4px;
   margin-top: 107px;
   border: none;
+
+}
+.filterSelector div:nth-child(2) {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding-left: 21px;
+  padding-right: 21px;
 }
 
-.filterSelector button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 8px 16px;
-  font-size: 12px;
+.active {
+  background-color: #007bff; 
+  color: #ffffff; 
+  border: none; 
+  cursor: pointer; 
 }
-
-.filterSelector button:focus {
-  outline: none;
-}
-
-.filterSelector button.active {
-  background-color: #007bff;
-  color: #ffffff;
-  border-radius: 4px;
-}
-

@@ -14,7 +14,7 @@ export default function ProjectLibrary() {
       behavior: "smooth",
     });
   }
-//Setup states, such as all projects and individual filters
+
   const [filteredData, setFilteredData] = useState([]);
   const [selectSub, setSelectSub] = useState([]);
   const [selectDiff, setSelectDiff] = useState("");
@@ -97,35 +97,8 @@ export default function ProjectLibrary() {
 
   return (
     <>
-      <NavBar userName={userName} userImage={userImage}/>
-      <div className={styles.outer}>
+      <NavBar />
       <div className={styles.mainContainer}>
-      <div className={styles.contentBox}>
-        <div className={styles.titles}>
-          <h1>Projects</h1>
-          <h3>
-            Welcome to the project library. You can use the filters on the left
-            to help you search for specific projects
-          </h3>
-          <div className={styles.filterButtons}>
-            <div className={styles.filterButtonsLevel}>
-              <button className={` ${selectDiff === "beginner" ? styles.active : ''}`} onClick={handleDiff}>BEGINNER</button>
-              <button className={` ${selectDiff === "intermediate" ? styles.active : ''}`} onClick={handleDiff}>INTERMEDIATE</button>
-              <button className={` ${selectDiff === "advanced" ? styles.active : ''}`} onClick={handleDiff}>ADVANCED</button>
-
-            </div>
-            </div>
-            </div>
-            <div className={styles.filterProjectsDisplayed}>
-              <h6>SHOW</h6>
-              <div className={styles.filterSelector}>
-              <button onClick={handleLimit} className={`${limit === 5 ? styles.active : ''}`}>5</button>
-              <button onClick={handleLimit} className={`${limit === 10 ? styles.active : ''}`}>10</button>
-              <button onClick={handleLimit} className={`${limit === "All" ? styles.active : ''}`}>All</button>
-              </div>
-            </div>
-        </div>
-        <div className={styles.extraDiv}>
         <Filter
           selectSub={selectSub}
           setSelectSub={setSelectSub}
@@ -136,10 +109,33 @@ export default function ProjectLibrary() {
           selectMatter={selectMatter}
           setSelectMatter={setSelectMatter}
         />
-        <div className={styles.displayProjects}>
+        <div className={styles.contentBox}>
+          <h1>Projects</h1>
+          <h3>
+            Welcome to the project library. You can use the filters on the left
+            to help you search for specific projects
+          </h3>
+          <div className={styles.filterButtons}>
+            <div className={styles.filterButtonsLevel}>
+              <div className={` ${selectDiff === "beginner" ? styles.active : ''}`} onClick={handleDiff}>BEGINNER</div>
+              <div className={` ${selectDiff === "intermediate" ? styles.active : ''}`} onClick={handleDiff}>INTERMEDIATE</div>
+              <div className={` ${selectDiff === "advanced" ? styles.active : ''}`} onClick={handleDiff}>ADVANCED</div>
+
+            </div>
+            <div className={styles.filterProjectsDisplayed}>
+              <h6>SHOW</h6>
+              <div className={styles.filterSelector}>
+              <div onClick={handleLimit} className={`${limit === "5" ? styles.active : ''}`}>5</div>
+              <div onClick={handleLimit} className={`${limit === "10" ? styles.active : ''}`}>10</div>
+              <div onClick={handleLimit} className={`${limit === "All" ? styles.active : ''}`}>All</div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.displayProjects}>
           {filteredData.map((project ) => (
                 <div className={styles.projectCard} key={project.project_id}>
                   {" "}
+                  {/* Added key */}
                   <Link to="/studentdashboard">
                     <img
                       src={project.project_pic}
@@ -156,17 +152,11 @@ export default function ProjectLibrary() {
               )
             )}
           </div>
-          </div>
+        </div>
       </div>
-      <div className={styles.button}>
       <button className={styles.backToTopButton} onClick={handleBackToTop}>
        BACK TO TOP
       </button>
-      { parseInt(isTeacher) === 1?<button className={styles.backToTopButton}>
-        BACK TO DASHBOARD
-      </button>:""}
-      </div>
-      </div>
       <Footer/>
     </>
   );
