@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../SharedItems/NavBar/NavBar";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Footer from "../SharedItems/Footer/Footer";
 
 
 
@@ -15,6 +16,8 @@ export default function StudentProfileViewer() {
     const [school, setSchool] = useState("");
     const [dob, setDob] = useState("");
     const [course, setCourse] = useState("");
+    const [isTeacher, setIsTeacher] = useState();
+    const [phone, setPhone] = useState("");
   // To navigate user away if they are not logged in.
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
@@ -32,6 +35,8 @@ export default function StudentProfileViewer() {
           setDob(response.data.dob);
           setEmail(response.data.email)
           setSchool(response.data.school);
+          setIsTeacher(response.data.isTeacher);
+          setPhone(response.data.contact);
 
         }
       } catch (error) {
@@ -67,30 +72,34 @@ export default function StudentProfileViewer() {
             <div className={styles.infoCardDetails}>
               <div className={styles.studentDetailsLeft}>
                 <p>School</p>
-                <p>Teacher</p>
-                <p>Course</p>
+                {parseInt(isTeacher) === 1 ? "" :<p>Teacher</p>}
+                {parseInt(isTeacher) === 1 ? <p>Courses Purchased</p> : <p>Courses</p>}
                 <p>Date of Birth</p>
                 <p>Contact No</p>
                 <p>Email Address</p>
               </div>
               <div className={styles.studentDetailsRight}>
-                <p>Homai School</p>
-                <p>Jasmina Salvado</p>
+                <p>{school}</p>
+                {parseInt(isTeacher) === 1 ? "" : <p>Jasmina Salvado</p>}
                 <p>{course}</p>
                 <p>{dob}</p>
-                <p>022 524 6399</p>
+                <p>{phone}</p>
                 <p>{email}</p>
               </div>
             </div>
           </div>
           <div className={styles.projectButton}>
             <Link to="/projectlibrary">
-              <button>Back to Projects</button>
+              <button>BACK TO PROJECTS</button>
             </Link>
+            {parseInt(isTeacher) === 1? <Link to="/projectlibrary">
+              <button className={styles.dashboard}>BACK TO DASHBOARD</button>
+            </Link>:""}
           </div>
         </div>
       </div>
       <div className={styles.projectsButton}></div>
+      <Footer/>
     </>
   );
 }

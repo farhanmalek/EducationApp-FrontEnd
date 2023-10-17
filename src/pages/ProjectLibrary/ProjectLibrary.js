@@ -68,6 +68,7 @@ export default function ProjectLibrary() {
   //Get logged in persons data from database;
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");
+  const [isTeacher, setIsTeacher] = useState();
 // To navigate user away if they are not logged in.
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
@@ -82,6 +83,7 @@ export default function ProjectLibrary() {
           console.log(response.data)
           setUserName(response.data.name);
           setUserImage(response.data.profile);
+          setIsTeacher(response.data.isTeacher);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -158,8 +160,11 @@ export default function ProjectLibrary() {
       </div>
       <div className={styles.button}>
       <button className={styles.backToTopButton} onClick={handleBackToTop}>
-        Back To Top
+       BACK TO TOP
       </button>
+      { parseInt(isTeacher) === 1?<button className={styles.backToTopButton}>
+        BACK TO DASHBOARD
+      </button>:""}
       </div>
       </div>
       <Footer/>
