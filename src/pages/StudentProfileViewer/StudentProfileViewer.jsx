@@ -22,6 +22,9 @@ export default function StudentProfileViewer() {
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
 
+
+    //convert dob to DD/MM/YYYY format using dayjs
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -73,7 +76,7 @@ export default function StudentProfileViewer() {
               <div className={styles.studentDetailsLeft}>
                 <p>School</p>
                 {parseInt(isTeacher) === 1 ? "" :<p>Teacher</p>}
-                {parseInt(isTeacher) === 1 ? <p>Courses Purchased</p> : <p>Courses</p>}
+                {parseInt(isTeacher) === 1 ? "" : <p>Courses</p>}
                 <p>Date of Birth</p>
                 <p>Contact No</p>
                 <p>Email Address</p>
